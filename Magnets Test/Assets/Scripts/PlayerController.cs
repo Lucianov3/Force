@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
             movementX.x += Input.GetAxis("D Pad X");
             if (Physics.Raycast(new Vector3(transform.position.x + 0.5f, transform.position.y), Vector3.down, out hitInfo) || Physics.Raycast(new Vector3(transform.position.x - 0.5f, transform.position.y), Vector3.down, out hitInfo))
             {
-                groundValue = hitInfo.transform.position.y + 1.0f;
+                groundValue = hitInfo.transform.position.y + 0.85f;
             }
             if (player2 != null)
             {
