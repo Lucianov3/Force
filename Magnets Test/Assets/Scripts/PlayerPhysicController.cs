@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class PlayerPhysicController : MonoBehaviour
 {
-    private enum playerEnum { PLAYER1, PLAYER2 }
+    private enum Orientation { UP, DOWN }
 
     private Rigidbody rb;
-    [SerializeField] private playerEnum player;
-    [SerializeField] private float gravityStrength = 1;
-    [SerializeField] private float velocity;
+    [SerializeField] private Orientation orientation;
+    [SerializeField] private Vector3 gravity;
+    [SerializeField] private float maxHeight;
+    [SerializeField] private float groundValue;
+    [SerializeField] private float verticalSpeed;
+    [SerializeField] private float horizontalSpeed;
+    private Vector3 playerVelocity = new Vector3();
 
     private void Start()
     {
@@ -18,10 +22,21 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        velocity = rb.velocity.y;
-        if (player == playerEnum.PLAYER1)
+        playerVelocity = Vector3.zero;
+        if (orientation == Orientation.UP)
         {
-            //rb.AddRelativeForce
+            float floatDestination = Input.GetAxis("Right Trigger") * maxHeight;
+            float currentHeight = transform.position.y  - groundValue;
+            playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
+
+            float horizontalMovement = Input.GetAxis("Left Joystick X") * horizontalSpeed;
+            playerVelocity.x = horizontalMovement;
         }
+        else
+        {
+
+        }
+        rb.velocity = playerVelocity;
+        rb.AddForce(gravity,ForceMode.VelocityChange);
     }
 }
