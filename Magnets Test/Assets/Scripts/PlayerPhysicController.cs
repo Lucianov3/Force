@@ -14,6 +14,65 @@ public class PlayerPhysicController : MonoBehaviour
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float horizontalSpeed;
     private Vector3 playerVelocity = new Vector3();
+    private Animator animator;
+
+    private float animationWalkingSpeed
+    {
+        get
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>(); 
+            }
+            return animator.GetFloat("WalkingSpeed");
+        }
+        set
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            animator.SetFloat("WalkingSpeed",value);
+        }
+    }
+    private bool animationCrouched
+    {
+        get
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            return animator.GetBool("Crouched");
+        }
+        set
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            animator.SetBool("Crouched", value);
+        }
+    }
+    private bool animationFlying
+    {
+        get
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            return animator.GetBool("Flying");
+        }
+        set
+        {
+            if (animator = null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            animator.SetBool("Flying", value);
+        }
+    }
 
     private void Start()
     {
