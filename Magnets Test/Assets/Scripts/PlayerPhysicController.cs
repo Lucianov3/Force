@@ -20,7 +20,7 @@ public class PlayerPhysicController : MonoBehaviour
     {
         get
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>(); 
             }
@@ -28,7 +28,7 @@ public class PlayerPhysicController : MonoBehaviour
         }
         set
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>();
             }
@@ -39,7 +39,7 @@ public class PlayerPhysicController : MonoBehaviour
     {
         get
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>();
             }
@@ -47,7 +47,7 @@ public class PlayerPhysicController : MonoBehaviour
         }
         set
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>();
             }
@@ -58,7 +58,7 @@ public class PlayerPhysicController : MonoBehaviour
     {
         get
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>();
             }
@@ -66,7 +66,7 @@ public class PlayerPhysicController : MonoBehaviour
         }
         set
         {
-            if (animator = null)
+            if (animator == null)
             {
                 animator = GetComponent<Animator>();
             }
@@ -82,12 +82,22 @@ public class PlayerPhysicController : MonoBehaviour
     private void FixedUpdate()
     {
         playerVelocity = Vector3.zero;
+        animationFlying = Input.GetAxis("Right Trigger") > 0 ? true : false;
+        animationWalkingSpeed = Mathf.Abs(Input.GetAxis("Left Joystick X"));
         if (orientation == Orientation.UP)
         {
             float floatDestination = Input.GetAxis("Right Trigger") * maxHeight;
             float currentHeight = transform.position.y  - groundValue;
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
-
+            if(Input.GetAxis("Left Joystick X") > 0)
+            {
+                rb.rotation = Quaternion.Euler(new Vector3(0,-90,0));
+            }
+            else if(Input.GetAxis("Left Joystick X") < 0)
+            {
+                rb.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+            }
+            Debug.Log(Input.GetAxis("Right Trigger"));
             float horizontalMovement = Input.GetAxis("Left Joystick X") * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
         }
@@ -97,5 +107,6 @@ public class PlayerPhysicController : MonoBehaviour
         }
         rb.velocity = playerVelocity;
         rb.AddForce(gravity,ForceMode.VelocityChange);
+
     }
 }
