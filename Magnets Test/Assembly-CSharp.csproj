@@ -61,11 +61,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PseudoDoorScript.cs" />
+    <Compile Include="Assets\Scripts\LevelCompleteScript.cs" />
     <Compile Include="Assets\Scripts\MapEditor\EvoirenmentController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\MapEditorScript.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerPhysicController.cs" />
+    <Compile Include="Assets\Scripts\PseudoDoorScript.cs" />
+    <Compile Include="Assets\Scripts\SwitchScript.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
