@@ -462,7 +462,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1898788528893724}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -8, y: 0.65, z: 0}
+  m_LocalPosition: {x: -0.23, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4179837762971060}
@@ -1915,9 +1915,13 @@ MonoBehaviour:
   orientation: 0
   gravity: {x: 0, y: -1, z: 0}
   maxHeight: 15
-  groundValue: 0.85
-  verticalSpeed: 5
-  horizontalSpeed: 20
+  groundValue: 0.65
+  verticalSpeed: 2.5
+  horizontalSpeed: 9
+  trigger: Right Trigger
+  joystickX: Left Joystick X
+  joystickY: Left Joystick Y
+  interactButton: Left Bumper
 --- !u!136 &136811560122754406
 CapsuleCollider:
   m_ObjectHideFlags: 1

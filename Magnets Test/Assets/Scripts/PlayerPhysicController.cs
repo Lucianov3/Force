@@ -6,13 +6,21 @@ public class PlayerPhysicController : MonoBehaviour
 {
     private enum Orientation { UP, DOWN }
 
-    private Rigidbody rb;
     [SerializeField] private Orientation orientation;
     [SerializeField] private Vector3 gravity;
     [SerializeField] private float maxHeight;
     [SerializeField] private float groundValue;
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float horizontalSpeed;
+    [SerializeField] private string trigger;
+    [SerializeField] private string joystickX;
+    [SerializeField] private string joystickY;
+    [SerializeField] private string interactButton;
+
+    private bool grounded = false;
+    private Collider currentGround;
+    private bool holdingObject = false;
+    private Rigidbody rb;
     private Vector3 playerVelocity = new Vector3();
     private Animator animator;
 
@@ -81,32 +89,86 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        printDebugLogs();
         playerVelocity = Vector3.zero;
-        animationFlying = Input.GetAxis("Right Trigger") > 0 ? true : false;
-        animationWalkingSpeed = Mathf.Abs(Input.GetAxis("Left Joystick X"));
+        animationFlying = Input.GetAxis(trigger) > 0 ? true : false;
+        animationWalkingSpeed = Mathf.Abs(Input.GetAxis(joystickX));
         if (orientation == Orientation.UP)
         {
-            float floatDestination = Input.GetAxis("Right Trigger") * maxHeight;
+            float floatDestination = Input.GetAxis(trigger) * maxHeight;
             float currentHeight = transform.position.y  - groundValue;
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
-            if(Input.GetAxis("Left Joystick X") > 0)
+            if(Input.GetAxis(joystickX) > 0)
             {
                 rb.rotation = Quaternion.Euler(new Vector3(0,-90,0));
             }
-            else if(Input.GetAxis("Left Joystick X") < 0)
+            else if(Input.GetAxis(joystickX) < 0)
             {
                 rb.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
             }
-            Debug.Log(Input.GetAxis("Right Trigger"));
-            float horizontalMovement = Input.GetAxis("Left Joystick X") * horizontalSpeed;
+            float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
         }
-        else
+        else if(orientation == Orientation.DOWN)
         {
-
+            float floatDestination = -Input.GetAxis(trigger) * maxHeight;
+            float currentHeight = transform.position.y + groundValue;
+            playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
+            if (Input.GetAxis(joystickX) > 0)
+            {
+                rb.rotation = Quaternion.Euler(new Vector3(180, 90, 0));
+            }
+            else if (Input.GetAxis(joystickX) < 0)
+            {
+                rb.rotation = Quaternion.Euler(new Vector3(180, -90, 0));
+            }
+            float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
+            playerVelocity.x = horizontalMovement;
         }
         rb.velocity = playerVelocity;
         rb.AddForce(gravity,ForceMode.VelocityChange);
 
+    }
+
+    private void printDebugLogs()
+    {
+        Debug.Log(grounded);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        foreach (ContactPoint contact in collision.contacts)
+        {
+            
+            switch (orientation)
+            {
+                case Orientation.UP:
+                    if (contact.point.y <= transform.position.y - 0.10f)
+                    {
+                        grounded = true;
+                        currentGround = collision.collider;
+                    }
+                    break;
+                case Orientation.DOWN:
+                    if (contact.point.y <= transform.position.y + 0.10f)
+                    {
+                        grounded = true;
+                    }
+                    break;
+            }
+        }
+        if (!holdingObject && collision.collider.CompareTag("Pick Up") && Input.GetButton(interactButton))
+        {
+
+        }
+
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if(collision.collider == currentGround)
+        {
+            grounded = false;
+        }
     }
 }

@@ -334,7 +334,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4033383733754154, guid: e569cc293862be845b451e3bd500785b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.88
+      value: 0.65
       objectReference: {fileID: 0}
     - target: {fileID: 4033383733754154, guid: e569cc293862be845b451e3bd500785b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -359,29 +359,6 @@ Prefab:
     - target: {fileID: 4033383733754154, guid: e569cc293862be845b451e3bd500785b, type: 2}
       propertyPath: m_RootOrder
       value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1898788528893724, guid: e569cc293862be845b451e3bd500785b, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 1769160172679002, guid: e569cc293862be845b451e3bd500785b, type: 2}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
-        type: 2}
-      propertyPath: verticalSpeed
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
-        type: 2}
-      propertyPath: horizontalSpeed
-      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e569cc293862be845b451e3bd500785b, type: 2}
@@ -699,7 +676,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4033383733754154, guid: e569cc293862be845b451e3bd500785b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.92
+      value: -0.65
       objectReference: {fileID: 0}
     - target: {fileID: 4033383733754154, guid: e569cc293862be845b451e3bd500785b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -769,6 +746,36 @@ Prefab:
     - target: {fileID: 135079801409534944, guid: e569cc293862be845b451e3bd500785b,
         type: 2}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: groundValue
+      value: -0.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: joystickX
+      value: Right Joystick X
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: joystickY
+      value: Right Joystick Y
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: interactButton
+      value: Right Bumper
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: trigger
+      value: Left Trigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502151185116494, guid: e569cc293862be845b451e3bd500785b,
+        type: 2}
+      propertyPath: orientation
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

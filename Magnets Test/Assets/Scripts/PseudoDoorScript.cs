@@ -70,7 +70,6 @@ public class PseudoDoorScript : MonoBehaviour
 
     private void DeactivateDoor()
     {
-        Debug.Log(door.GetComponent<PseudoDoorScript>());
         if (door.GetComponent<PseudoDoorScript>() != null)
         {
             if (!door.GetComponent<PseudoDoorScript>().activated)
