@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AlphaLevel3Scripts\ResetPosition.cs" />
     <Compile Include="Assets\Scripts\AlphaLevel3Scripts\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\LevelCompleteScript.cs" />
     <Compile Include="Assets\Scripts\MapEditor\EvoirenmentController.cs" />
