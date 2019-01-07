@@ -52,7 +52,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 3
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Right Joystick Y
     descriptiveName: 
@@ -68,7 +68,7 @@ InputManager:
     invert: 0
     type: 2
     axis: 4
-    joyNum: 2
+    joyNum: 1
   - serializedVersion: 3
     m_Name: D Pad X
     descriptiveName: 
@@ -260,4 +260,4 @@ InputManager:
     invert: 0
     type: 2
     axis: 9
-    joyNum: 2
+    joyNum: 1

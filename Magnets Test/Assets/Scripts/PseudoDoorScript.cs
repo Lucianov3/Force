@@ -40,7 +40,7 @@ public class PseudoDoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             activated = true;
         }
@@ -48,7 +48,7 @@ public class PseudoDoorScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             activated = false;
             count = 0;

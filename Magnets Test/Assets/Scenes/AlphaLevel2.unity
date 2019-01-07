@@ -1051,6 +1051,7 @@ GameObject:
   - component: {fileID: 1968454745}
   - component: {fileID: 1968454744}
   - component: {fileID: 1968454743}
+  - component: {fileID: 1968454746}
   m_Layer: 0
   m_Name: BlueMagnet
   m_TagString: Untagged
@@ -1129,6 +1130,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1968454741}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1968454746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1968454741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d1782990afcf646805066470d9a8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blue: {fileID: 2800000, guid: 17f866841703ada4881fdb06706c4e67, type: 3}
+  red: {fileID: 2800000, guid: c75b88a50f8714c4ea46404a25d3ddc5, type: 3}
+  isTop: 1
 --- !u!1001 &1973041658
 Prefab:
   m_ObjectHideFlags: 0
@@ -1171,6 +1186,24 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f32d2c35b7526c4080c6921d2f3683e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1976801307 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1964398806653200, guid: 60fbb69fc0c00104e9db8bb83baab1a7,
+    type: 2}
+  m_PrefabInternal: {fileID: 381374316}
+--- !u!136 &1976801313
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976801307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 2.2099917
+  m_Direction: 1
+  m_Center: {x: -5.489091e-18, y: 0.99593866, z: -0.030863732}
 --- !u!1 &2011278224
 GameObject:
   m_ObjectHideFlags: 0
@@ -1301,6 +1334,7 @@ GameObject:
   - component: {fileID: 2059029650}
   - component: {fileID: 2059029649}
   - component: {fileID: 2059029648}
+  - component: {fileID: 2059029651}
   m_Layer: 0
   m_Name: RedMagnet
   m_TagString: Untagged
@@ -1379,6 +1413,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2059029646}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2059029651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2059029646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12d1782990afcf646805066470d9a8b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blue: {fileID: 2800000, guid: 17f866841703ada4881fdb06706c4e67, type: 3}
+  red: {fileID: 2800000, guid: c75b88a50f8714c4ea46404a25d3ddc5, type: 3}
+  isTop: 0
 --- !u!1001 &2079655759
 Prefab:
   m_ObjectHideFlags: 0
