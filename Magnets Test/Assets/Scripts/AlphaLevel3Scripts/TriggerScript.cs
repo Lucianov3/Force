@@ -6,38 +6,42 @@ public class TriggerScript : MonoBehaviour
 {
     public GameObject GateOne;
     public GameObject GateTwo;
+    public GameObject GateThree;
+    public GameObject GateFour;
+    public GameObject GateFive;
 
-    // Use this for initialization
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
+    public GameObject TriggerOne;
+    public GameObject TriggerTwo;
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && TriggerOne)
         {
             GateOne.SetActive(false);
-        }
-        if (other.CompareTag("Player"))
-        {
+            GateThree.SetActive(false);
             GateTwo.SetActive(true);
+            GateFour.SetActive(true);
+            GateFive.SetActive(true);
+        }
+        if (other.CompareTag("Player") && TriggerTwo)
+        {
+            GateOne.SetActive(true);
+            GateThree.SetActive(true);
+            GateTwo.SetActive(false);
+            GateFour.SetActive(false);
+            GateFive.SetActive(false);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && TriggerOne || other.CompareTag("Player") && TriggerTwo)
         {
             GateOne.SetActive(true);
-        }
-        if (other.CompareTag("Player"))
-        {
-            GateTwo.SetActive(false);
+            GateThree.SetActive(true);
+            GateTwo.SetActive(true);
+            GateFour.SetActive(true);
+            GateFive.SetActive(true);
         }
     }
 }
