@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelCompleteScript : MonoBehaviour
 {
     static public int entered = 0;
+
+    [SerializeField]
+    private string levelLoad;
 
     // Use this for initialization
     private void Start()
@@ -21,6 +25,10 @@ public class LevelCompleteScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             entered++;
+            if (entered == 2)
+            {
+                SceneManager.LoadScene(levelLoad);
+            }
             Debug.Log(entered);
         }
     }

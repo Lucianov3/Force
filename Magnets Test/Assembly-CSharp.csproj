@@ -61,10 +61,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AlphaLevel3Scripts\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\LevelCompleteScript.cs" />
     <Compile Include="Assets\Scripts\MapEditor\EvoirenmentController.cs" />
     <Compile Include="Assets\Scripts\MapEditor\MapEditorScript.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\PlayerPhysicController.cs" />
     <Compile Include="Assets\Scripts\PseudoDoorScript.cs" />
     <Compile Include="Assets\Scripts\SwitchScript.cs" />
