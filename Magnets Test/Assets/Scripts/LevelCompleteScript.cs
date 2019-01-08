@@ -10,22 +10,12 @@ public class LevelCompleteScript : MonoBehaviour
     [SerializeField]
     private string levelLoad;
 
-    // Use this for initialization
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             entered++;
-            if (entered == 2)
+            if (entered >= 2)
             {
                 SceneManager.LoadScene(levelLoad);
             }
@@ -35,7 +25,7 @@ public class LevelCompleteScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             entered--;
         }

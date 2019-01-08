@@ -15,7 +15,7 @@ public class TriggerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && TriggerOne)
+        if (other.CompareTag("Player") && TriggerOne && !other.isTrigger)
         {
             GateOne.SetActive(false);
             GateThree.SetActive(false);
@@ -23,7 +23,7 @@ public class TriggerScript : MonoBehaviour
             GateFour.SetActive(true);
             GateFive.SetActive(true);
         }
-        if (other.CompareTag("Player") && TriggerTwo)
+        if (other.CompareTag("Player") && TriggerTwo && !other.isTrigger)
         {
             GateOne.SetActive(true);
             GateThree.SetActive(true);
@@ -35,7 +35,7 @@ public class TriggerScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && TriggerOne || other.CompareTag("Player") && TriggerTwo)
+        if (other.CompareTag("Player") && TriggerOne && !other.isTrigger || other.CompareTag("Player") && TriggerTwo && !other.isTrigger)
         {
             GateOne.SetActive(true);
             GateThree.SetActive(true);
