@@ -14,7 +14,7 @@ public class ResetPosition : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player"))
+        if (collision.collider.CompareTag("Player") && !collision.collider.isTrigger)
         {
             Player.transform.position = playerPostion;
         }
