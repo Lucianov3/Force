@@ -7,13 +7,13 @@ public class PseudoDoorScript : MonoBehaviour
     public bool activated = false;
 
     [SerializeField] private float timeTillActivatedDoor = 2f;
+
     [SerializeField] private GameObject door;
 
     private float count = 0f;
 
     public PseudoDoorScript activator;
 
-    // Use this for initialization
     private void Start()
     {
         if (door != null && door.GetComponent<PseudoDoorScript>() != null)
@@ -22,7 +22,6 @@ public class PseudoDoorScript : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     private void Update()
     {
         if (activated)
