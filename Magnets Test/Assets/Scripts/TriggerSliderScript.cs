@@ -11,9 +11,14 @@ public class TriggerSliderScript : MonoBehaviour
     [SerializeField] private float timeTillMaxLength = 2f;
     [SerializeField] private float count = 0;
 
+    private BreakpointParentScript parent;
+
+    private bool counted = false;
+
     private void Start()
     {
         childObject = transform.GetChild(0);
+        parent = transform.parent.GetComponent<BreakpointParentScript>();
     }
 
     private void Update()
@@ -25,6 +30,16 @@ public class TriggerSliderScript : MonoBehaviour
                 count += Time.deltaTime;
                 childObject.localScale = new Vector3(count / timeTillMaxLength, childObject.localScale.y, childObject.localScale.z);
             }
+            else if (!counted)
+            {
+                counted = true;
+                parent.Counter++;
+            }
+        }
+        else if (counted)
+        {
+            counted = false;
+            parent.Counter--;
         }
     }
 
