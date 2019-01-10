@@ -18,7 +18,7 @@ public class SwitchColorSript : MonoBehaviour
     {
         if (isTop)
         {
-            if (Input.GetAxis("Right Trigger") > 0)
+            if (Input.GetAxis("Right Trigger 1") > 0)
             {
                 Debug.Log("poop");
 
@@ -33,7 +33,7 @@ public class SwitchColorSript : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxis("Left Trigger") > 0)
+            if (Input.GetAxis("Left Trigger 1") > 0)
             {
                 material.SetTexture("_EmissionMap", blue);
                 material.SetTexture("_MainTex", blue);
