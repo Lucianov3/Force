@@ -4,19 +4,27 @@ using UnityEngine;
 
 public class ResetPosition : MonoBehaviour
 {
-    public GameObject Player;
-    private Vector3 playerPostion;
+    [SerializeField] private GameObject playerRed;
+    private Vector3 playerRedPosition;
+
+    [SerializeField] private GameObject playerBlue;
+    private Vector3 playerBluePosition;
 
     private void Start()
     {
-        playerPostion = Player.transform.position;
+        playerRedPosition = playerRed.transform.position;
+        playerBluePosition = playerBlue.transform.position;
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Player") && !collision.collider.isTrigger)
+        if (playerRed == collision.gameObject && !collision.collider.isTrigger)
         {
-            Player.transform.position = playerPostion;
+            playerRed.transform.position = playerRedPosition;
+        }
+        if (playerBlue == collision.gameObject && !collision.collider.isTrigger)
+        {
+            playerBlue.transform.position = playerBluePosition;
         }
     }
 }
