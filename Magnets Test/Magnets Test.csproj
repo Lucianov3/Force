@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2018.2.17f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -258,6 +256,9 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="XInputDotNetPure">
+      <HintPath>Assets/XInputDotNet/Plugins/XInputDotNetPure.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Luciano v3/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
@@ -311,6 +312,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\BreakpointParentScript.cs" />
     <Compile Include="Assets\save.cs" />
     <Compile Include="Assets\Scripts\AlphaLevel3Scripts\ResetPosition.cs" />
     <Compile Include="Assets\Scripts\AlphaLevel3Scripts\TriggerScript.cs" />
@@ -325,11 +327,15 @@
     <Compile Include="Assets\Scripts\PseudoDoorScript.cs" />
     <Compile Include="Assets\Scripts\SwitchColorSript.cs" />
     <Compile Include="Assets\Scripts\SwitchScript.cs" />
+    <Compile Include="Assets\Scripts\TriggerSliderScript.cs" />
+    <Compile Include="Assets\XInputDotNet\Examples\XInputTestCS.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\JsonDotNet\Assemblies\Standalone\Newtonsoft.Json.XML" />
     <None Include="Assets\JsonDotNet\link.xml" />
     <None Include="Assets\Levels\level.txt" />
+    <None Include="Assets\XInputDotNet\Docs.txt" />
+    <None Include="Assets\XInputDotNet\MITLicense.txt" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="Packages\com.unity.package-manager-ui\Editor\Resources\Templates\Alert.uxml" />

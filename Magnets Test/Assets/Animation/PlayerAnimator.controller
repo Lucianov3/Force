@@ -46,9 +46,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: WalkingSpeed
-    m_EventTreshold: 0.1
+    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Crouched
     m_EventTreshold: 0
@@ -145,9 +145,9 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
+  - m_ConditionMode: 4
     m_ConditionEvent: WalkingSpeed
-    m_EventTreshold: 0
+    m_EventTreshold: 0.1
   - m_ConditionMode: 1
     m_ConditionEvent: Crouched
     m_EventTreshold: 0
@@ -268,9 +268,6 @@ AnimatorStateTransition:
   m_PrefabInternal: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 3
-    m_ConditionEvent: WalkingSpeed
-    m_EventTreshold: 0
   - m_ConditionMode: 1
     m_ConditionEvent: Crouched
     m_EventTreshold: 0
@@ -674,7 +671,7 @@ AnimatorStateMachine:
     m_Position: {x: 360, y: 132, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102700607338373552}
-    m_Position: {x: 600, y: 336, z: 0}
+    m_Position: {x: 600, y: 348, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

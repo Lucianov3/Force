@@ -1919,10 +1919,7 @@ MonoBehaviour:
   groundValue: 0.2
   verticalSpeed: 2.5
   horizontalSpeed: 9
-  trigger: Left Trigger
-  joystickX: Right Joystick X
-  joystickY: Right Joystick Y
-  interactButton: Right Bumper
+  player: 1
 --- !u!136 &136155299453568738
 CapsuleCollider:
   m_ObjectHideFlags: 1

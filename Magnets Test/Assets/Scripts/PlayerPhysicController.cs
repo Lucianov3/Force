@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using XInputDotNetPure;
 
 public class PlayerPhysicController : MonoBehaviour
 {
     private enum Orientation { UP, DOWN }
+    private enum Player { PLAYER1,PLAYER2 }
 
     [SerializeField] private Orientation orientation;
     [SerializeField] private Vector3 gravity;
@@ -12,12 +14,14 @@ public class PlayerPhysicController : MonoBehaviour
     [SerializeField] private float groundValue;
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float horizontalSpeed;
-    [SerializeField] private string trigger;
-    [SerializeField] private string joystickX;
-    [SerializeField] private string joystickY;
-    [SerializeField] private string interactButton;
+    [SerializeField] private Player player;
+    private string trigger;
+    private string joystickX;
+    private string joystickY;
+    private string interactButton;
+    private string duckButton;
 
-    private Collider currentGround;
+
     private bool holdingObject = false;
     private GameObject objectHold;
     private Rigidbody rb;
@@ -87,6 +91,7 @@ public class PlayerPhysicController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        SetControlsStrings();
     }
 
     private void FixedUpdate()
@@ -136,6 +141,25 @@ public class PlayerPhysicController : MonoBehaviour
             objectHold.transform.GetComponent<Collider>().enabled = true;
             objectHold = null;
         }
+        if (Input.GetButtonDown(duckButton))
+        {
+            animationCrouched = true;
+            GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.1f, 0.1f);
+        }
+        if (Input.GetButtonUp(duckButton))
+        {
+            animationCrouched = false;
+            GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.0f, 0.0f);
+        }
+    }
+
+    private void SetControlsStrings()
+    {
+        trigger = player == Player.PLAYER1 ? Controls.BluePlayerHover : Controls.RedPlayerHover;
+        joystickX = player == Player.PLAYER1 ? Controls.RedPlayerMovementX : Controls.BluePlayerMovementX;
+        joystickY = player == Player.PLAYER1 ? Controls.RedPlayerMovementY : Controls.BluePlayerMovementY;
+        interactButton = player == Player.PLAYER1 ? Controls.RedPlayerInteract : Controls.BluePlayerInteract;
+        duckButton = player == Player.PLAYER1 ? Controls.RedPlayerHover : Controls.BluePlayerHover;
     }
 
     private void SetHoldingObjectFalse()
