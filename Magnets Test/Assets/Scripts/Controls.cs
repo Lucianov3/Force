@@ -60,11 +60,11 @@ public class Controls
             {
                 if (!PlayerOneAltControls)
                 {
-                    return "Left Joystick X 1";
+                    return "Right Joystick X 1";
                 }
                 else
                 {
-                    return "Right Joystick X 1";
+                    return "Left Joystick X 1";
                 }
             }
             else

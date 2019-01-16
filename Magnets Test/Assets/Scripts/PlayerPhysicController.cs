@@ -141,12 +141,12 @@ public class PlayerPhysicController : MonoBehaviour
             objectHold.transform.GetComponent<Collider>().enabled = true;
             objectHold = null;
         }
-        if (Input.GetButtonDown(duckButton))
+        if (Input.GetButton(duckButton))
         {
             animationCrouched = true;
             GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.1f, 0.1f);
         }
-        if (Input.GetButtonUp(duckButton))
+        else
         {
             animationCrouched = false;
             GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.0f, 0.0f);
@@ -159,7 +159,7 @@ public class PlayerPhysicController : MonoBehaviour
         joystickX = player == Player.PLAYER1 ? Controls.RedPlayerMovementX : Controls.BluePlayerMovementX;
         joystickY = player == Player.PLAYER1 ? Controls.RedPlayerMovementY : Controls.BluePlayerMovementY;
         interactButton = player == Player.PLAYER1 ? Controls.RedPlayerInteract : Controls.BluePlayerInteract;
-        duckButton = player == Player.PLAYER1 ? Controls.RedPlayerHover : Controls.BluePlayerHover;
+        duckButton = player == Player.PLAYER1 ? Controls.RedPlayerDuck : Controls.BluePlayerDuck;
     }
 
     private void SetHoldingObjectFalse()
