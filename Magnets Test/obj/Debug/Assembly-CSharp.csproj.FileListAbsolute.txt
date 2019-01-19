@@ -336,3 +336,4 @@ D:\Projects\Plus_Minus\Magnets Test\obj\Debug\Assembly-CSharp.csproj.CoreCompile
 D:\Projects\Plus_Minus\Magnets Test\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Projects\Plus_Minus\Magnets Test\obj\Debug\Assembly-CSharp.dll
 D:\Projects\Plus_Minus\Magnets Test\obj\Debug\Assembly-CSharp.pdb
+D:\Projects\Plus_Minus\Magnets Test\Temp\bin\Debug\XInputDotNetPure.dll

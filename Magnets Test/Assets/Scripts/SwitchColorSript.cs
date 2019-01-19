@@ -20,8 +20,6 @@ public class SwitchColorSript : MonoBehaviour
         {
             if (Input.GetAxis("Right Trigger 1") > 0)
             {
-                Debug.Log("poop");
-
                 material.SetTexture("_EmissionMap", red);
                 material.SetTexture("_MainTex", red);
             }
