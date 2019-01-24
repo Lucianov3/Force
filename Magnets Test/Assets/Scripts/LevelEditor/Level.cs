@@ -46,6 +46,7 @@ public class Level
             this.TopOrientation = level.TopOrientation;
             this.BotOrientation = level.BotOrientation;
         }
+        Debug.Log("Level Succesfully loaded");
     }
 
     public void SaveLevelToJson(string path)
@@ -58,5 +59,6 @@ public class Level
         {
             JObject.FromObject(this).WriteTo(writer);
         }
+        Debug.Log("Level Succesfully saved");
     }
 }
