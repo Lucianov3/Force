@@ -19,8 +19,7 @@ public class BreakpointParentScript : MonoBehaviour
     {
         if (Counter == children)
         {
-            //mach was
-            prefabObject.SetActive(false);
+            prefabObject.SetActive(true);
         }
     }
 }
