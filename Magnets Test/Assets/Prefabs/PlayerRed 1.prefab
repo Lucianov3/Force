@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4694515718363316}
   - component: {fileID: 33621811353044396}
   - component: {fileID: 23051828282769726}
+  - component: {fileID: 136290280422246922}
   m_Layer: 0
   m_Name: body
   m_TagString: Untagged
@@ -232,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834433283042274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.546, y: 0.513, z: 0}
+  m_LocalPosition: {x: 2.546, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4694515718363316}
@@ -752,6 +753,19 @@ MonoBehaviour:
   verticalSpeed: 2.5
   horizontalSpeed: 9
   player: 0
+--- !u!136 &136290280422246922
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259546948577794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36448863
+  m_Height: 2.0184891
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0069057, z: 0}
 --- !u!136 &136441502191257602
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -760,7 +774,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1834433283042274}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.2006135
   m_Height: 2.0409014
   m_Direction: 1

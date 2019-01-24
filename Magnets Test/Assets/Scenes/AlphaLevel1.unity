@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.899
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -155,25 +155,6 @@ Prefab:
     - target: {fileID: 1843264281408640, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
       propertyPath: m_Name
       value: PlayerBlue
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 114684160405862448, guid: ac4b14e1fc305474aa5f8bb96404709f,
-        type: 2}
-      propertyPath: groundValue
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114684160405862448, guid: ac4b14e1fc305474aa5f8bb96404709f,
-        type: 2}
-      propertyPath: player
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114684160405862448, guid: ac4b14e1fc305474aa5f8bb96404709f,
-        type: 2}
-      propertyPath: gravity.y
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
@@ -484,7 +465,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4586257576303206, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.513
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4586257576303206, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
       propertyPath: m_LocalPosition.z
