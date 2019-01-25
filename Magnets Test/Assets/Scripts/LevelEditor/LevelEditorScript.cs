@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class LevelEditorScript : MonoBehaviour
 {
@@ -50,13 +51,17 @@ public class LevelEditorScript : MonoBehaviour
     public Level EditLevel = new Level();
     private GameObject[,,] setObjects = new GameObject[2, 63, 19];
 
+    private bool isObjectSelectionMenuOpen = false;
     private bool isMenuOpen = false;
 
     [SerializeField] private GameObject objectSelectionMenu;
     [SerializeField] private Dropdown dropDown;
+    [SerializeField] private GameObject menu;
 
     private int currentHoldObjectRotation = 0;
     private int currentObjectID = 0;
+
+    [SerializeField] private EventSystem eventSystem;
 
     private void Start()
     {
@@ -73,9 +78,13 @@ public class LevelEditorScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Back Button 1"))
         {
+            OpenCloseObjectSelectionMenu();
+        }
+        if (Input.GetButtonDown("Start Button 1"))
+        {
             OpenCloseMenu();
         }
-        if (!isMenuOpen)
+        if (!isMenuOpen && !isObjectSelectionMenuOpen)
         {
             if (Input.GetButtonDown("A Button 1"))
             {
@@ -89,6 +98,14 @@ public class LevelEditorScript : MonoBehaviour
             {
                 isPointerUp = !isPointerUp;
                 UpdatePointer();
+            }
+            if (Input.GetButtonDown("Right Bumper 1"))
+            {
+                RotateHeldObject(90);
+            }
+            if (Input.GetButtonDown("Left Bumper 1"))
+            {
+                RotateHeldObject(-90);
             }
             if (allowPointerMovementX)
             {
@@ -153,7 +170,7 @@ public class LevelEditorScript : MonoBehaviour
         {
             return;
         }
-        setObjects[i, xPosition, yPosition] = Instantiate(GameManager.ObjectForLoadingLevels[id - 1], i == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, rotation)));
+        setObjects[i, xPosition, yPosition] = Instantiate(GameManager.ObjectForLoadingLevels[id - 1], i == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, 0, rotation)));
     }
 
     private void DeleteObjectInLevel()
@@ -171,7 +188,7 @@ public class LevelEditorScript : MonoBehaviour
         if (pointer.transform.childCount > 1)
         {
             currentHoldObjectRotation = value > 0 ? currentHoldObjectRotation + 90 : currentHoldObjectRotation - 90;
-            pointer.transform.GetChild(1).transform.localRotation = Quaternion.Euler(pointer.transform.GetChild(1).transform.localRotation.x, currentHoldObjectRotation, pointer.transform.GetChild(1).transform.localRotation.z);
+            pointer.transform.GetChild(1).transform.localRotation = Quaternion.Euler(pointer.transform.GetChild(1).transform.localRotation.x, pointer.transform.GetChild(1).transform.localRotation.y, currentHoldObjectRotation);
         }
     }
 
@@ -185,17 +202,35 @@ public class LevelEditorScript : MonoBehaviour
         dropDown.AddOptions(objectsName);
     }
 
+    private void OpenCloseObjectSelectionMenu()
+    {
+        if (isObjectSelectionMenuOpen)
+        {
+            dropDown.Hide();
+            isObjectSelectionMenuOpen = false;
+            objectSelectionMenu.SetActive(false);
+        }
+        else
+        {
+            isObjectSelectionMenuOpen = true;
+            objectSelectionMenu.SetActive(true);
+            eventSystem.SetSelectedGameObject(objectSelectionMenu.transform.GetChild(0).gameObject);
+            dropDown.Hide();
+        }
+    }
+
     private void OpenCloseMenu()
     {
         if (isMenuOpen)
         {
             isMenuOpen = false;
-            objectSelectionMenu.SetActive(false);
+            menu.SetActive(false);
         }
         else
         {
             isMenuOpen = true;
-            objectSelectionMenu.SetActive(true);
+            menu.SetActive(true);
+            eventSystem.SetSelectedGameObject(menu.transform.GetChild(0).gameObject);
         }
     }
 

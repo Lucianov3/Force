@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public static LevelEditorScript Editor;
 
+    public static bool isGravityOn = false;
+
     private void Start()
     {
         if (ObjectForLoadingLevels == null)
@@ -43,7 +45,6 @@ public class GameManager : MonoBehaviour
             {
                 for (int k = 0; k < Editor.EditLevel.Content.GetLength(2); k++)
                 {
-                    Debug.Log("poop");
                     Editor.SetObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i);
                 }
             }
