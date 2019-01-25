@@ -6,7 +6,8 @@ using XInputDotNetPure;
 public class PlayerPhysicController : MonoBehaviour
 {
     private enum Orientation { UP, DOWN }
-    private enum Player { PLAYER1,PLAYER2 }
+
+    private enum Player { PLAYER1, PLAYER2 }
 
     [SerializeField] private Orientation orientation;
     [SerializeField] private Vector3 gravity;
@@ -15,12 +16,12 @@ public class PlayerPhysicController : MonoBehaviour
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private Player player;
+    private Vector3 startPosition;
     private string trigger;
     private string joystickX;
     private string joystickY;
     private string interactButton;
     private string duckButton;
-
 
     private bool holdingObject = false;
     private GameObject objectHold;
@@ -91,7 +92,9 @@ public class PlayerPhysicController : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        startPosition = rb.position;
         SetControlsStrings();
+        ResetPosition.onPlayerCollision += RespawnPlayer;
     }
 
     private void FixedUpdate()
@@ -106,11 +109,11 @@ public class PlayerPhysicController : MonoBehaviour
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(0, -90, 0));
+                rb.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
             }
             else if (Input.GetAxis(joystickX) < 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(0, 90, 0));
+                rb.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
             float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
@@ -122,11 +125,11 @@ public class PlayerPhysicController : MonoBehaviour
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(180, 90, 0));
+                rb.rotation = Quaternion.Euler(new Vector3(180, 180, 0));
             }
             else if (Input.GetAxis(joystickX) < 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(180, -90, 0));
+                rb.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
             }
             float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
@@ -150,6 +153,14 @@ public class PlayerPhysicController : MonoBehaviour
         {
             animationCrouched = false;
             GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.0f, 0.0f);
+        }
+    }
+
+    private void RespawnPlayer(string name)
+    {
+        if (name == gameObject.name)
+        {
+            rb.position = startPosition;
         }
     }
 
