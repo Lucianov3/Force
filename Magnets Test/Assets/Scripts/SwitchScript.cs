@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SwitchScript : MonoBehaviour
 {
-    public GameObject Gate;
+    public int Channel = 0;
+
+    private void Start()
+    {
+        TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            Gate.SetActive(!Gate.activeSelf);
+            ActivateSwitch();
         }
     }
 
@@ -19,8 +23,21 @@ public class SwitchScript : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
-            gameObject.GetComponent<MeshRenderer>().enabled = true;
-            Gate.SetActive(!Gate.activeSelf);
+            DeactivateSwitch();
         }
+    }
+
+    private void ActivateSwitch()
+    {
+        TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]++;
+        TransmitterEventManager.OnTransmitterActivation(Channel);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
+    }
+
+    private void DeactivateSwitch()
+    {
+        TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
+        TransmitterEventManager.OnTransmitterDeactivation(Channel);
+        gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 }
