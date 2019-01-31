@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\PlayerPhysicController.cs" />
     <Compile Include="Assets\Scripts\PseudoDoorScript.cs" />
     <Compile Include="Assets\Scripts\save.cs" />
+    <Compile Include="Assets\Scripts\SenderEventManager.cs" />
     <Compile Include="Assets\Scripts\SwitchColorSript.cs" />
     <Compile Include="Assets\Scripts\SwitchScript.cs" />
     <Compile Include="Assets\Scripts\TriggerSliderScript.cs" />
