@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class TriggerSliderScript : MonoBehaviour
 {
-    public bool onPosition = false;
-
+    private bool onPosition = false;
+    private bool activated = false;
     private Transform childObject;
-
     [SerializeField] private float timeTillMaxLength = 2f;
     [SerializeField] private float count = 0;
-
-    private BreakpointParentScript parent;
-
-    private bool counted = false;
+    public int Channel = 0;
 
     private void Start()
     {
         childObject = transform.GetChild(0);
-        parent = transform.parent.GetComponent<BreakpointParentScript>();
+        TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
     }
 
     private void Update()
@@ -30,22 +26,18 @@ public class TriggerSliderScript : MonoBehaviour
                 count += Time.deltaTime;
                 childObject.localScale = new Vector3(count / timeTillMaxLength, childObject.localScale.y, childObject.localScale.z);
             }
-            else if (!counted)
+            else if (!activated)
             {
-                counted = true;
-                parent.Counter++;
+                activated = true;
+                TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]++;
+                TransmitterEventManager.OnTransmitterActivation(Channel);
             }
-        }
-        else if (counted)
-        {
-            counted = false;
-            parent.Counter--;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
             onPosition = true;
         }
@@ -53,11 +45,14 @@ public class TriggerSliderScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger)
+        if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
+            activated = false;
             onPosition = false;
             count = 0;
             childObject.localScale = new Vector3(count, childObject.localScale.y, childObject.localScale.z);
+            TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
+            TransmitterEventManager.OnTransmitterDeactivation(Channel);
         }
     }
 }

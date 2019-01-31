@@ -61,11 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AlphaLevel3Scripts\ResetPosition.cs" />
     <Compile Include="Assets\Scripts\AlphaLevel3Scripts\TriggerScript.cs" />
     <Compile Include="Assets\Scripts\BreakpointParentScript.cs" />
     <Compile Include="Assets\Scripts\Controls.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GateScript.cs" />
     <Compile Include="Assets\Scripts\GravityScript.cs" />
     <Compile Include="Assets\Scripts\LevelCompleteScript.cs" />
     <Compile Include="Assets\Scripts\LevelEditor\Level.cs" />
@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\MainMenuButtonScript.cs" />
     <Compile Include="Assets\Scripts\PlayerPhysicController.cs" />
     <Compile Include="Assets\Scripts\PseudoDoorScript.cs" />
+    <Compile Include="Assets\Scripts\ResetPosition.cs" />
     <Compile Include="Assets\Scripts\save.cs" />
     <Compile Include="Assets\Scripts\SenderEventManager.cs" />
     <Compile Include="Assets\Scripts\SwitchColorSript.cs" />
@@ -143,16 +144,16 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -353,16 +354,16 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.17f1/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Assets/JsonDotNet/Assemblies/Standalone/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="XInputDotNetPure">
-      <HintPath>D:/Diploma/Plus_Minus/Magnets Test/Assets/XInputDotNet/Plugins/XInputDotNetPure.dll</HintPath>
+      <HintPath>D:/Projects/Plus_Minus/Magnets Test/Assets/XInputDotNet/Plugins/XInputDotNetPure.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
-      <HintPath>C:/Users/Thomas/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
+      <HintPath>C:/Users/Dennis/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.StandardEvents">
-      <HintPath>C:/Users/Thomas/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Dennis/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.13/UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.17f1/Editor/Data/MonoBleedingEdge/lib/mono/unity/mscorlib.dll</HintPath>
