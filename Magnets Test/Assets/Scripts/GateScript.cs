@@ -17,6 +17,12 @@ public class GateScript : MonoBehaviour
         collider = GetComponent<Collider>();
     }
 
+    private void OnDisable()
+    {
+        TransmitterEventManager.OnTransmitterActivation -= ActivateGate;
+        TransmitterEventManager.OnTransmitterDeactivation -= DeactivateGate;
+    }
+
     private void ActivateGate(int TransmitterChannel)
     {
         if (TransmitterChannel == Channel)

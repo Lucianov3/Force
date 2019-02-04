@@ -1,9 +1,9 @@
-﻿
-public class Controls
+﻿public class Controls
 {
-    public static bool TwoPlayerMode = false;
+    public static bool TwoPlayerMode = true;
     public static bool PlayerOneAltControls = false;
     public static bool PlayerTwoAltControls = false;
+
     public static string RedPlayerMovementX
     {
         get
@@ -28,6 +28,7 @@ public class Controls
         {
         }
     }
+
     public static string RedPlayerMovementY
     {
         get
@@ -52,6 +53,7 @@ public class Controls
         {
         }
     }
+
     public static string BluePlayerMovementX
     {
         get
@@ -83,6 +85,7 @@ public class Controls
         {
         }
     }
+
     public static string BluePlayerMovementY
     {
         get
@@ -114,6 +117,7 @@ public class Controls
         {
         }
     }
+
     public static string RedPlayerInteract
     {
         get
@@ -138,6 +142,7 @@ public class Controls
         {
         }
     }
+
     public static string BluePlayerInteract
     {
         get
@@ -162,6 +167,7 @@ public class Controls
         {
         }
     }
+
     public static string RedPlayerHover
     {
         get
@@ -186,6 +192,7 @@ public class Controls
         {
         }
     }
+
     public static string BluePlayerHover
     {
         get
@@ -210,6 +217,7 @@ public class Controls
         {
         }
     }
+
     public static string RedPlayerDuck
     {
         get
@@ -234,6 +242,7 @@ public class Controls
         {
         }
     }
+
     public static string BluePlayerDuck
     {
         get

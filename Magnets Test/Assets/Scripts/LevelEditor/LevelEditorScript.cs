@@ -70,8 +70,6 @@ public class LevelEditorScript : MonoBehaviour
         PointerCoordinateX = 0;
         PointerCoordinateY = 0;
         GameManager.Editor = this;
-        EditLevel.LoadLevelFromJson(Application.dataPath + "/Levels/Level.txt");
-        GameManager.LoadLevelIntoMapEditor();
     }
 
     private void Update()

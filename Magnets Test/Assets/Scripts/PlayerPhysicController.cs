@@ -97,6 +97,11 @@ public class PlayerPhysicController : MonoBehaviour
         ResetPosition.onPlayerCollision += RespawnPlayer;
     }
 
+    private void OnDisable()
+    {
+        ResetPosition.onPlayerCollision -= RespawnPlayer;
+    }
+
     private void FixedUpdate()
     {
         playerVelocity = Vector3.zero;
@@ -166,7 +171,7 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void SetControlsStrings()
     {
-        trigger = player == Player.PLAYER1 ? Controls.BluePlayerHover : Controls.RedPlayerHover;
+        trigger = player == Player.PLAYER1 ? Controls.RedPlayerHover : Controls.BluePlayerHover;
         joystickX = player == Player.PLAYER1 ? Controls.RedPlayerMovementX : Controls.BluePlayerMovementX;
         joystickY = player == Player.PLAYER1 ? Controls.RedPlayerMovementY : Controls.BluePlayerMovementY;
         interactButton = player == Player.PLAYER1 ? Controls.RedPlayerInteract : Controls.BluePlayerInteract;

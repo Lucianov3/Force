@@ -13,7 +13,6 @@ public class ResetPosition : MonoBehaviour
         if (!collision.collider.isTrigger)
         {
             onPlayerCollision(collision.collider.transform.parent.gameObject.name);
-            Debug.Log("Buggy");
         }
     }
 }

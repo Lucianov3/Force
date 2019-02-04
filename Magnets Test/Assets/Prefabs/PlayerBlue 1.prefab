@@ -55,9 +55,10 @@ GameObject:
   - component: {fileID: 4857450042189420}
   - component: {fileID: 33396781923125314}
   - component: {fileID: 23742216976638426}
+  - component: {fileID: 136072687553568952}
   m_Layer: 0
   m_Name: body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -141,7 +142,6 @@ GameObject:
   - component: {fileID: 95603713371827864}
   - component: {fileID: 54142627981698732}
   - component: {fileID: 136649799625048918}
-  - component: {fileID: 136777529000722242}
   - component: {fileID: 114684160405862448}
   m_Layer: 0
   m_Name: PlayerBlue 1
@@ -752,6 +752,19 @@ MonoBehaviour:
   verticalSpeed: 2.5
   horizontalSpeed: 9
   player: 1
+--- !u!136 &136072687553568952
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1306214564050568}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.36448863
+  m_Height: 2.0184891
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.0069057, z: 0}
 --- !u!136 &136649799625048918
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -765,16 +778,3 @@ CapsuleCollider:
   m_Height: 2.0777783
   m_Direction: 1
   m_Center: {x: -0.025837123, y: 1.0334857, z: 0}
---- !u!136 &136777529000722242
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1843264281408640}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2006135
-  m_Height: 2.0409014
-  m_Direction: 1
-  m_Center: {x: -0.04210353, y: 1.0139655, z: 0}

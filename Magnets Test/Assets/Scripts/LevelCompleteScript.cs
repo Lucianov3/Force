@@ -10,6 +10,11 @@ public class LevelCompleteScript : MonoBehaviour
     [SerializeField]
     private string levelLoad;
 
+    private void Start()
+    {
+        entered = 0;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !other.isTrigger)
@@ -17,9 +22,11 @@ public class LevelCompleteScript : MonoBehaviour
             entered++;
             if (entered >= 2)
             {
+                TransmitterEventManager.IsChannelInMulitMode = new bool[10];
+                TransmitterEventManager.NumberOfTransmitterPerChannel = new int[10];
+                TransmitterEventManager.NumberOfActivatedTransmitterPerChannel = new int[10];
                 SceneManager.LoadScene(levelLoad);
             }
-            Debug.Log(entered);
         }
     }
 

@@ -15,6 +15,7 @@ public class TriggerSliderScript : MonoBehaviour
     {
         childObject = transform.GetChild(0);
         TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
+        TransmitterEventManager.IsChannelInMulitMode[Channel] = true;
     }
 
     private void Update()
@@ -47,12 +48,15 @@ public class TriggerSliderScript : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
-            activated = false;
             onPosition = false;
             count = 0;
             childObject.localScale = new Vector3(count, childObject.localScale.y, childObject.localScale.z);
-            TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
-            TransmitterEventManager.OnTransmitterDeactivation(Channel);
+            if (activated)
+            {
+                activated = false;
+                TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
+                TransmitterEventManager.OnTransmitterDeactivation(Channel);
+            }
         }
     }
 }

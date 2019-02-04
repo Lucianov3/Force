@@ -159,7 +159,6 @@ GameObject:
   - component: {fileID: 95961098294810160}
   - component: {fileID: 54654609236443096}
   - component: {fileID: 136665422664572594}
-  - component: {fileID: 136441502191257602}
   - component: {fileID: 114344831379178760}
   m_Layer: 0
   m_Name: PlayerRed 1
@@ -233,7 +232,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834433283042274}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.03, y: 0.5, z: 0}
+  m_LocalPosition: {x: -25, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4694515718363316}
@@ -766,19 +765,6 @@ CapsuleCollider:
   m_Height: 2.0184891
   m_Direction: 1
   m_Center: {x: 0, y: 1.0069057, z: 0}
---- !u!136 &136441502191257602
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1834433283042274}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.2006135
-  m_Height: 2.0409014
-  m_Direction: 1
-  m_Center: {x: -0.04210353, y: 1.0139655, z: 0}
 --- !u!136 &136665422664572594
 CapsuleCollider:
   m_ObjectHideFlags: 1
