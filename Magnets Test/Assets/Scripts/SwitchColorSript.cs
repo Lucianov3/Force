@@ -21,12 +21,12 @@ public class SwitchColorSript : MonoBehaviour
             if (Input.GetAxis("Right Trigger 1") > 0)
             {
                 material.SetTexture("_EmissionMap", red);
-                material.SetTexture("_MainTex", red);
+                //material.SetTexture("_MainTex", red);
             }
             else
             {
                 material.SetTexture("_EmissionMap", blue);
-                material.SetTexture("_MainTex", blue);
+                //material.SetTexture("_MainTex", blue);
             }
         }
         else
@@ -34,12 +34,12 @@ public class SwitchColorSript : MonoBehaviour
             if (Input.GetAxis("Left Trigger 1") > 0)
             {
                 material.SetTexture("_EmissionMap", blue);
-                material.SetTexture("_MainTex", blue);
+                //material.SetTexture("_MainTex", blue);
             }
             else
             {
                 material.SetTexture("_EmissionMap", red);
-                material.SetTexture("_MainTex", red);
+                //material.SetTexture("_MainTex", red);
             }
         }
     }

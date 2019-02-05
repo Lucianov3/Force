@@ -194,4 +194,15 @@ public class PlayerPhysicController : MonoBehaviour
             collider.transform.GetComponent<Collider>().enabled = false;
         }
     }
+
+    public void StartSound(AudioClip audioClip)
+    {
+        GetComponent<AudioSource>().clip = audioClip;
+        GetComponent<AudioSource>().Play();
+    }
+
+    public void StopSound()
+    {
+        GetComponent<AudioSource>().Stop();
+    }
 }
