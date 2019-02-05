@@ -1,6 +1,6 @@
 ﻿public class Controls
 {
-    public static bool TwoPlayerMode = true;
+    public static bool TwoPlayerMode = false;
     public static bool PlayerOneAltControls = false;
     public static bool PlayerTwoAltControls = false;
 
