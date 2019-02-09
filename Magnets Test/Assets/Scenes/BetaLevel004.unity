@@ -3724,7 +3724,8 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: c7625e7759b255945be13f717b50043e, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &582760069
@@ -4771,6 +4772,26 @@ Prefab:
     - target: {fileID: 4707789960413966, guid: b813f80665c31054da3b7ad782145b63, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20953174258905058, guid: b813f80665c31054da3b7ad782145b63,
+        type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20953174258905058, guid: b813f80665c31054da3b7ad782145b63,
+        type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20953174258905058, guid: b813f80665c31054da3b7ad782145b63,
+        type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20953174258905058, guid: b813f80665c31054da3b7ad782145b63,
+        type: 2}
+      propertyPath: m_ClearFlags
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b813f80665c31054da3b7ad782145b63, type: 2}
@@ -7703,14 +7724,6 @@ Prefab:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 2}
       propertyPath: m_Name
       value: Laser (200)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7625e7759b255945be13f717b50043e, type: 2}
@@ -11367,10 +11380,6 @@ Prefab:
     - target: {fileID: 1358454039141484, guid: 1b2cf5d6c13a4dc4399a5bbce73820d1, type: 2}
       propertyPath: m_Name
       value: LaserEdge (7)
-      objectReference: {fileID: 0}
-    - target: {fileID: 4181283652469062, guid: 1b2cf5d6c13a4dc4399a5bbce73820d1, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1b2cf5d6c13a4dc4399a5bbce73820d1, type: 2}
