@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4603170947902526}
   - component: {fileID: 33993183209310722}
   - component: {fileID: 23585040638903098}
+  - component: {fileID: 95952351239776306}
   m_Layer: 0
   m_Name: Laser (4)
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   - component: {fileID: 4704684038498076}
   - component: {fileID: 33966896891618388}
   - component: {fileID: 23336351769091120}
+  - component: {fileID: 95096085647703172}
   m_Layer: 0
   m_Name: Laser (3)
   m_TagString: Untagged
@@ -76,7 +78,7 @@ Transform:
   - {fileID: 4603170947902526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!4 &4603170947902526
 Transform:
   m_ObjectHideFlags: 1
@@ -199,6 +201,42 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6267346, y: 0.623301, z: 1}
   m_Center: {x: 0.18663272, y: -0.18834955, z: 0}
+--- !u!95 &95096085647703172
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1662547369536488}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 495b416fb3a01b44c8ea4bbf0493a75d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!95 &95952351239776306
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1090819226477910}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 495b416fb3a01b44c8ea4bbf0493a75d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114432312405897178
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,4 +14,9 @@ public class LevelContent
         Object = obj;
         Rotation = rot;
     }
+
+    public void SetChannel(int channel)
+    {
+        Channel = channel;
+    }
 }

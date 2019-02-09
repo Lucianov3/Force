@@ -52,10 +52,13 @@ public class LevelEditorScript : MonoBehaviour
     private GameObject[,,] setObjects = new GameObject[2, 63, 19];
 
     private bool isObjectSelectionMenuOpen = false;
+    private bool isChannelSelectionMenuOpen = false;
     private bool isMenuOpen = false;
 
     [SerializeField] private GameObject objectSelectionMenu;
-    [SerializeField] private Dropdown dropDown;
+    [SerializeField] private GameObject channelSelectionMenu;
+    [SerializeField] private Dropdown dropDownObjectSelection;
+    [SerializeField] private Dropdown dropDownChannelSelection;
     [SerializeField] private GameObject menu;
 
     private int currentHoldObjectRotation = 0;
@@ -82,7 +85,18 @@ public class LevelEditorScript : MonoBehaviour
         {
             OpenCloseMenu();
         }
-        if (!isMenuOpen && !isObjectSelectionMenuOpen)
+        if (Input.GetButtonDown("B Button 1"))
+        {
+            if (isChannelSelectionMenuOpen)
+            {
+                CloseAllMenus();
+            }
+            else
+            {
+                OpenCloseChannelSelectionMenu();
+            }
+        }
+        if (!isMenuOpen && !isObjectSelectionMenuOpen && !isChannelSelectionMenuOpen)
         {
             if (Input.GetButtonDown("A Button 1"))
             {
@@ -197,23 +211,44 @@ public class LevelEditorScript : MonoBehaviour
         {
             objectsName.Add(obj.name);
         }
-        dropDown.AddOptions(objectsName);
+        dropDownObjectSelection.AddOptions(objectsName);
     }
 
     private void OpenCloseObjectSelectionMenu()
     {
         if (isObjectSelectionMenuOpen)
         {
-            dropDown.Hide();
+            dropDownObjectSelection.Hide();
             isObjectSelectionMenuOpen = false;
             objectSelectionMenu.SetActive(false);
         }
         else
         {
+            CloseAllMenus();
             isObjectSelectionMenuOpen = true;
             objectSelectionMenu.SetActive(true);
             eventSystem.SetSelectedGameObject(objectSelectionMenu.transform.GetChild(0).gameObject);
-            dropDown.Hide();
+            dropDownObjectSelection.Hide();
+        }
+    }
+
+    private void OpenCloseChannelSelectionMenu()
+    {
+        if (isChannelSelectionMenuOpen)
+        {
+            dropDownChannelSelection.Hide();
+            isChannelSelectionMenuOpen = false;
+            channelSelectionMenu.SetActive(false);
+        }
+        else
+        {
+            CloseAllMenus();
+
+            dropDownChannelSelection.value = EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel;
+            isChannelSelectionMenuOpen = true;
+            channelSelectionMenu.SetActive(true);
+            eventSystem.SetSelectedGameObject(channelSelectionMenu.transform.GetChild(0).gameObject);
+            dropDownChannelSelection.Hide();
         }
     }
 
@@ -226,9 +261,26 @@ public class LevelEditorScript : MonoBehaviour
         }
         else
         {
+            CloseAllMenus();
             isMenuOpen = true;
             menu.SetActive(true);
             eventSystem.SetSelectedGameObject(menu.transform.GetChild(0).gameObject);
+        }
+    }
+
+    private void CloseAllMenus()
+    {
+        if (isMenuOpen)
+        {
+            OpenCloseMenu();
+        }
+        if (isObjectSelectionMenuOpen)
+        {
+            OpenCloseObjectSelectionMenu();
+        }
+        if (isChannelSelectionMenuOpen)
+        {
+            OpenCloseChannelSelectionMenu();
         }
     }
 
@@ -243,6 +295,11 @@ public class LevelEditorScript : MonoBehaviour
         {
             Instantiate(GameManager.ObjectForLoadingLevels[i - 1], pointer.transform);
         }
+    }
+
+    public void SetChannel(int index)
+    {
+        EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = index;
     }
 
     private void UpdatePointer()
