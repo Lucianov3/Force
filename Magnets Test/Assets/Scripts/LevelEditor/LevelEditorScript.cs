@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class LevelEditorScript : MonoBehaviour
 {
@@ -168,6 +169,12 @@ public class LevelEditorScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void TestEditLevel()
+    {
+        TestLevel.TestLvl = EditLevel;
+        SceneManager.LoadScene("LevelEditorTestLevel");
     }
 
     public void SetObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i, int Channel)

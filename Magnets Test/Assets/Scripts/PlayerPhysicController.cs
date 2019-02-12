@@ -95,6 +95,14 @@ public class PlayerPhysicController : MonoBehaviour
         startPosition = rb.position;
         SetControlsStrings();
         ResetPosition.onPlayerCollision += RespawnPlayer;
+        if (orientation == Orientation.UP)
+        {
+            rb.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+        }
+        else if (orientation == Orientation.DOWN)
+        {
+            rb.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
+        }
     }
 
     private void OnDisable()

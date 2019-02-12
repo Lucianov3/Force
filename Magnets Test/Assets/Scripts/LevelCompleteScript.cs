@@ -7,8 +7,7 @@ public class LevelCompleteScript : MonoBehaviour
 {
     static public int entered = 0;
 
-    [SerializeField]
-    private string levelLoad;
+    public string LevelLoad;
 
     private void Start()
     {
@@ -25,7 +24,7 @@ public class LevelCompleteScript : MonoBehaviour
                 TransmitterEventManager.IsChannelInMulitMode = new bool[10];
                 TransmitterEventManager.NumberOfTransmitterPerChannel = new int[10];
                 TransmitterEventManager.NumberOfActivatedTransmitterPerChannel = new int[10];
-                SceneManager.LoadScene(levelLoad);
+                SceneManager.LoadScene(LevelLoad);
             }
         }
     }
