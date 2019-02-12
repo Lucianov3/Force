@@ -723,7 +723,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4591799768307722, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 10.267
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591799768307722, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.018305
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 212694751293063496, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
   m_IsPrefabAsset: 0
 --- !u!4 &391972775 stripped
@@ -907,7 +916,7 @@ Prefab:
     - target: {fileID: 114470317474061172, guid: 156162f34c7953945a2672cd95656664,
         type: 2}
       propertyPath: levelLoad
-      value: Level006
+      value: Level005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156162f34c7953945a2672cd95656664, type: 2}
@@ -1427,6 +1436,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4463564782325122, guid: 3256215f3478d234c8f9163259b5f731,
     type: 2}
   m_PrefabInternal: {fileID: 1548765813}
+--- !u!1 &990109957 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1246194205731676, guid: 579fdb2be07210344b5416b8d55e844d,
+    type: 2}
+  m_PrefabInternal: {fileID: 378479579}
+--- !u!114 &990109958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 990109957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e4a6af5114b0b41b347a870d3c7bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Frames: []
+  AnimatedImage: {fileID: 0}
 --- !u!1 &996752199
 GameObject:
   m_ObjectHideFlags: 0
@@ -2382,7 +2409,7 @@ Prefab:
     - target: {fileID: 114467218181058006, guid: 6fc2c1b626b07a8478b882460fbd7963,
         type: 2}
       propertyPath: levelLoad
-      value: Level006
+      value: Level005
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
@@ -2586,7 +2613,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Hover the <#00A0FF>blue</color> player on the level of the switch to open
+  m_text: 'hover the <#00A0FF>blue</color> player on the level of the switch to open
     the gate for the <#F87E7E>red</color> player
 
 
