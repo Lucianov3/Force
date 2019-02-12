@@ -1431,6 +1431,11 @@ Prefab:
       propertyPath: levelLoad
       value: Level003
       objectReference: {fileID: 0}
+    - target: {fileID: 114470317474061172, guid: 156162f34c7953945a2672cd95656664,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156162f34c7953945a2672cd95656664, type: 2}
   m_IsPrefabAsset: 0
@@ -5017,6 +5022,11 @@ Prefab:
     - target: {fileID: 114467218181058006, guid: 6fc2c1b626b07a8478b882460fbd7963,
         type: 2}
       propertyPath: levelLoad
+      value: Level003
+      objectReference: {fileID: 0}
+    - target: {fileID: 114467218181058006, guid: 6fc2c1b626b07a8478b882460fbd7963,
+        type: 2}
+      propertyPath: LevelLoad
       value: Level003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
