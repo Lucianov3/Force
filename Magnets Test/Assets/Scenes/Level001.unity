@@ -306,7 +306,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "right trigger is to lift up the <#F87E7E>red</color> player \nleft trigger
+  m_text: "Right trigger is to lift up the <#F87E7E>red</color> player \nleft trigger
     is to lift up the <#00A0FF>blue</color> player"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
@@ -916,18 +916,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4909228540906896, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
   m_IsPrefabAsset: 0
@@ -1102,7 +1090,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'left analog stick is for moving of the <#F87E7E>red</color> player
+  m_text: 'Left analog stick is for moving of the <#F87E7E>red</color> player
 
     right analog stick is for moving of the <#00A0FF>blue</color> player'
   m_isRightToLeft: 0
@@ -1352,7 +1340,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: try to reach both doors with each player
+  m_text: Try to reach both doors with each player
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
   m_sharedMaterial: {fileID: 21986656626907368, guid: ff2f12daec2f3d54f86fde351c8f613d,

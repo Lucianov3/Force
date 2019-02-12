@@ -5739,7 +5739,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "right bumper is for crouching of the <#F87E7E>red</color> player \nleft
+  m_text: "Right bumper is for crouching of the <#F87E7E>red</color> player \nleft
     bumper is for crouching of the <#00A0FF>blue</color> player "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}

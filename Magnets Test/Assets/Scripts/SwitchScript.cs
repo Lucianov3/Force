@@ -9,6 +9,7 @@ public class SwitchScript : MonoBehaviour
     private void Start()
     {
         TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
+        TransmitterEventManager.IsChannelInMulitMode[Channel] = true;
     }
 
     private void OnTriggerEnter(Collider other)
