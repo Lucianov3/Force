@@ -2639,6 +2639,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114684160405862448, guid: ac4b14e1fc305474aa5f8bb96404709f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 54142627981698732, guid: ac4b14e1fc305474aa5f8bb96404709f,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
   m_IsPrefabAsset: 0
@@ -2700,6 +2710,110 @@ Prefab:
     - target: {fileID: 4586257576303206, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694515718363316, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694515718363316, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694515718363316, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694515718363316, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449705954180058, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449705954180058, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449705954180058, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975079095265346, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975079095265346, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4975079095265346, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214936654984542, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214936654984542, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4214936654984542, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986659783899182, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986659783899182, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986659783899182, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882733704426100, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882733704426100, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4882733704426100, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886989882531010, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886989882531010, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4886989882531010, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250045414860644, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250045414860644, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4250045414860644, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4694515718363316, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
@@ -2978,7 +3092,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: the <#00A0FF>blue</color> player has to go on the switch to open the gate
+  m_text: The <#00A0FF>blue</color> player has to go on the switch to open the gate
     for the <#F87E7E>red</color> player.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
