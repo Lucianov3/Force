@@ -11,7 +11,7 @@ public class Level
 
     public string Name = "";
 
-    public LevelContent[,,] Content = new LevelContent[2, 63, 19];
+    public LevelContent[,,] Content = new LevelContent[2, 64, 19];
 
     public LevelOrientation TopOrientation = LevelOrientation.DOWN;
     public LevelOrientation BotOrientation = LevelOrientation.UP;

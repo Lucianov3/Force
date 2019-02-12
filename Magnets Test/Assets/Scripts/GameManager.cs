@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (level.Content[i, j, k].Object != 0)
                     {
-                        GameObject obj = Instantiate(GameManager.ObjectForLoadingLevels[level.Content[i, j, k].Object - 1], i == 0 ? new Vector3(-31.5f + j, 1.0f + k) : new Vector3(-31.5f + j, -19.0f + k), Quaternion.Euler(new Vector3(0, Editor.EditLevel.Content[i, j, k].Rotation)));
+                        GameObject obj = Instantiate(GameManager.ObjectForLoadingLevels[level.Content[i, j, k].Object - 1], i == 0 ? new Vector3(-31.5f + j, 1.0f + k) : new Vector3(-31.5f + j, -19.0f + k), Quaternion.Euler(new Vector3(0, 0, Editor.EditLevel.Content[i, j, k].Rotation)));
                         if (obj.GetComponent<GateScript>() != null)
                         {
                             obj.GetComponent<GateScript>().Channel = level.Content[i, j, k].Channel;
@@ -39,20 +39,20 @@ public class GameManager : MonoBehaviour
                         {
                             obj.GetComponent<SwitchScript>().Channel = level.Content[i, j, k].Channel;
                         }
-                        else if (obj.GetComponent<LevelCompleteScript>() != null)
-                        {
-                            obj.GetComponent<LevelCompleteScript>().LevelLoad = "LevelEditor";
-                        }
                         else if (obj.GetComponent<PlayerPhysicController>() != null)
                         {
                             obj.GetComponent<Rigidbody>().isKinematic = false;
                             obj.GetComponent<PlayerPhysicController>().enabled = true;
                         }
-                        else if (obj.transform.GetChild(0) != null)
+                        else if (obj.transform.childCount > 0)
                         {
                             if (obj.transform.GetChild(0).GetComponent<TriggerSliderScript>() != null)
                             {
                                 obj.transform.GetChild(0).GetComponent<TriggerSliderScript>().Channel = level.Content[i, j, k].Channel;
+                            }
+                            else if (obj.transform.GetChild(0).GetComponent<LevelCompleteScript>() != null)
+                            {
+                                obj.transform.GetChild(0).GetComponent<LevelCompleteScript>().LevelLoad = "LevelEditor";
                             }
                         }
                     }

@@ -50,7 +50,7 @@ public class LevelEditorScript : MonoBehaviour
     private float fastPointerMovementTimerY = 0f;
 
     public Level EditLevel = new Level();
-    private GameObject[,,] setObjects = new GameObject[2, 63, 19];
+    private GameObject[,,] setObjects = new GameObject[2, 64, 19];
 
     private bool isObjectSelectionMenuOpen = false;
     private bool isChannelSelectionMenuOpen = false;
@@ -74,6 +74,11 @@ public class LevelEditorScript : MonoBehaviour
         PointerCoordinateX = 0;
         PointerCoordinateY = 0;
         GameManager.Editor = this;
+        if (TestLevel.TestLvl != null)
+        {
+            EditLevel = TestLevel.TestLvl;
+            GameManager.LoadLevelIntoMapEditor();
+        }
     }
 
     private void Update()
