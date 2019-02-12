@@ -100,7 +100,7 @@ public class LevelEditorScript : MonoBehaviour
         {
             if (Input.GetButtonDown("A Button 1"))
             {
-                SetObjectInLevel(currentObjectID, currentHoldObjectRotation, PointerCoordinateX, PointerCoordinateY, isPointerUp ? 0 : 1);
+                SetObjectInLevel(currentObjectID, currentHoldObjectRotation, PointerCoordinateX, PointerCoordinateY, isPointerUp ? 0 : 1, 0);
             }
             if (Input.GetButtonDown("X Button 1"))
             {
@@ -170,7 +170,7 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    public void SetObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i)
+    public void SetObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i, int Channel)
     {
         EditLevel.Content[i, xPosition, yPosition].SetObjectAndRotation(id, rotation);
         if (setObjects[i, xPosition, yPosition] != null)
@@ -243,7 +243,6 @@ public class LevelEditorScript : MonoBehaviour
         else
         {
             CloseAllMenus();
-
             dropDownChannelSelection.value = EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel;
             isChannelSelectionMenuOpen = true;
             channelSelectionMenu.SetActive(true);

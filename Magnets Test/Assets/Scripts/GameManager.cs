@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
             {
                 for (int k = 0; k < Editor.EditLevel.Content.GetLength(2); k++)
                 {
-                    Editor.SetObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i);
+                    Editor.SetObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i, Editor.EditLevel.Content[i, j, k].Channel);
                 }
             }
         }
