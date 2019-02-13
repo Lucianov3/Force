@@ -16,6 +16,8 @@ public class PlayerPhysicController : MonoBehaviour
     [SerializeField] private float verticalSpeed;
     [SerializeField] private float horizontalSpeed;
     [SerializeField] private Player player;
+    [SerializeField] private GameObject particleEffect;
+    [SerializeField] private float timeTillPlayerRespawn = 1.5f;
     private Vector3 startPosition;
     private string trigger;
     private string joystickX;
@@ -94,7 +96,7 @@ public class PlayerPhysicController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         startPosition = rb.position;
         SetControlsStrings();
-        ResetPosition.onPlayerCollision += RespawnPlayer;
+        ResetPosition.onPlayerCollision += PlayerHit;
         if (orientation == Orientation.UP)
         {
             rb.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
@@ -107,7 +109,7 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void OnDisable()
     {
-        ResetPosition.onPlayerCollision -= RespawnPlayer;
+        ResetPosition.onPlayerCollision -= PlayerHit;
     }
 
     private void FixedUpdate()
@@ -195,12 +197,24 @@ public class PlayerPhysicController : MonoBehaviour
         }
     }
 
-    private void RespawnPlayer(string name)
+    private void PlayerHit(string name)
     {
         if (name == gameObject.name)
         {
-            rb.position = startPosition;
+            KillPlayer();
+            Invoke("RespawnPlayer", timeTillPlayerRespawn);
         }
+    }
+
+    private void RespawnPlayer()
+    {
+        rb.position = startPosition;
+    }
+
+    private void KillPlayer()
+    {
+        Instantiate(particleEffect, transform.position, Quaternion.identity);
+        rb.position = new Vector3(99, 99, 99);
     }
 
     private void SetControlsStrings()

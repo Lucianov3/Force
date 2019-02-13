@@ -848,6 +848,9 @@ MonoBehaviour:
   verticalSpeed: 2.5
   horizontalSpeed: 9
   player: 0
+  particleEffect: {fileID: 1221325706342982, guid: 3da5b72e78c819b4290273a86568da21,
+    type: 2}
+  timeTillPlayerRespawn: 1.5
 --- !u!136 &136290280422246922
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -83,7 +83,6 @@ public class LevelEditorScript : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(Input.GetAxis("Menu Y-Axis"));
         if (Input.GetButtonDown("Back Button 1"))
         {
             OpenCloseObjectSelectionMenu();
@@ -94,7 +93,7 @@ public class LevelEditorScript : MonoBehaviour
         }
         if (Input.GetButtonDown("B Button 1"))
         {
-            if (isChannelSelectionMenuOpen)
+            if (isChannelSelectionMenuOpen || isObjectSelectionMenuOpen || isMenuOpen)
             {
                 CloseAllMenus();
             }
