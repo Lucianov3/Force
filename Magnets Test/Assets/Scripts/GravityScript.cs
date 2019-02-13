@@ -26,11 +26,11 @@ public class GravityScript : MonoBehaviour
             }
             if (rb.position.y > 0)
             {
-                rb.velocity = new Vector3(0, -15f);
+                rb.velocity = new Vector3(0, -300f * Time.deltaTime);
             }
             else
             {
-                rb.velocity = new Vector3(0, 15f);
+                rb.velocity = new Vector3(0, 300f * Time.deltaTime);
             }
         }
     }

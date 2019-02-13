@@ -115,7 +115,7 @@ public class PlayerPhysicController : MonoBehaviour
     private void FixedUpdate()
     {
         playerVelocity = Vector3.zero;
-        animationFlying = Input.GetAxis(trigger) > 0 ? true : false;
+        //animationFlying = Input.GetAxis(trigger) > 0 ? true : false;
         animationWalkingSpeed = Mathf.Abs(Input.GetAxis(joystickX));
         if (orientation == Orientation.UP)
         {
@@ -182,8 +182,8 @@ public class PlayerPhysicController : MonoBehaviour
                 GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
             }
         }
-        rb.velocity = playerVelocity;
-        rb.AddForce(gravity, ForceMode.VelocityChange);
+        rb.velocity = playerVelocity * Time.fixedDeltaTime;
+        rb.AddForce(gravity * Time.fixedDeltaTime, ForceMode.VelocityChange);
         if (holdingObject && Input.GetButtonDown(interactButton))
         {
             Invoke("SetHoldingObjectFalse", 0.1f);
@@ -194,6 +194,14 @@ public class PlayerPhysicController : MonoBehaviour
             objectHold.transform.GetComponent<Collider>().enabled = true;
             objectHold.GetComponent<GravityScript>().IsObjectHeld = false;
             objectHold = null;
+        }
+        if (Physics.Raycast(transform.position + Vector3.up, player == Player.PLAYER1 ? Vector3.down : Vector3.up, 1.5f))
+        {
+            animationFlying = false;
+        }
+        else
+        {
+            animationFlying = true;
         }
     }
 
@@ -238,7 +246,7 @@ public class PlayerPhysicController : MonoBehaviour
             holdingObject = true;
             objectHold = collider.gameObject;
             collider.transform.SetParent(transform.GetChild(0).GetChild(0).GetChild(0));
-            objectHold.transform.localPosition = new Vector3(0, 0, 0);
+            objectHold.transform.localPosition = new Vector3(0, 0.4f, 0);
             collider.transform.GetComponent<Rigidbody>().isKinematic = true;
             collider.transform.GetComponent<Collider>().enabled = false;
             collider.GetComponent<GravityScript>().IsObjectHeld = true;

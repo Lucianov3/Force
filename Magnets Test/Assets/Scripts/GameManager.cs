@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public static LevelEditorScript Editor;
 
-    public static bool isGravityOn = false;
+    public static bool isGravityOn = true;
 
     private void Start()
     {

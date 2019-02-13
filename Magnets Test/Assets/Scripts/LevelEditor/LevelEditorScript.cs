@@ -71,6 +71,7 @@ public class LevelEditorScript : MonoBehaviour
     {
         SetDropDown();
         Controls.TwoPlayerMode = false;
+        GameManager.isGravityOn = false;
         PointerCoordinateX = 0;
         PointerCoordinateY = 0;
         GameManager.Editor = this;
@@ -79,6 +80,11 @@ public class LevelEditorScript : MonoBehaviour
             EditLevel = TestLevel.TestLvl;
             GameManager.LoadLevelIntoMapEditor();
         }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.isGravityOn = true;
     }
 
     private void Update()
