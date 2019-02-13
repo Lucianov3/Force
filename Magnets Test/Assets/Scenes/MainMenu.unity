@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 55154934}
   - component: {fileID: 55154937}
   m_Layer: 5
-  m_Name: LoadGameButton
+  m_Name: SelectLevelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2618,7 +2618,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
@@ -2685,7 +2685,7 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
@@ -4156,7 +4156,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
@@ -4223,11 +4223,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -6139,7 +6139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &876914959
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6762,7 +6762,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &948329888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7869,7 +7869,7 @@ GameObject:
   - component: {fileID: 1322819941}
   - component: {fileID: 1322819940}
   m_Layer: 5
-  m_Name: LoadGameText
+  m_Name: SelectLevelText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7912,7 +7912,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Load Game
+  m_text: Select Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
   m_sharedMaterial: {fileID: 21986656626907368, guid: ff2f12daec2f3d54f86fde351c8f613d,
@@ -7981,7 +7981,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1322819940}
-    characterCount: 9
+    characterCount: 12
     spriteCount: 0
     spaceCount: 1
     wordCount: 2
@@ -8253,7 +8253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1382869318
 RectTransform:
   m_ObjectHideFlags: 0

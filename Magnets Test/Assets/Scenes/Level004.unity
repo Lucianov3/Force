@@ -1651,6 +1651,15 @@ Prefab:
       propertyPath: LevelLoad
       value: Level005
       objectReference: {fileID: 0}
+    - target: {fileID: 4915398056835526, guid: 156162f34c7953945a2672cd95656664, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114105114639102280, guid: 156162f34c7953945a2672cd95656664,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156162f34c7953945a2672cd95656664, type: 2}
   m_IsPrefabAsset: 0
@@ -3295,7 +3304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1005736681 stripped
 Transform:
@@ -5281,6 +5290,19 @@ Prefab:
       value: Level005
       objectReference: {fileID: 0}
     - target: {fileID: 114467218181058006, guid: 6fc2c1b626b07a8478b882460fbd7963,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267710624038506, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267710624038506, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114478025308680234, guid: 6fc2c1b626b07a8478b882460fbd7963,
         type: 2}
       propertyPath: LevelLoad
       value: Level005

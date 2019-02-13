@@ -1453,6 +1453,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114105114639102280, guid: 156162f34c7953945a2672cd95656664,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level003
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156162f34c7953945a2672cd95656664, type: 2}
   m_IsPrefabAsset: 0
@@ -4873,6 +4878,16 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 54142627981698732, guid: ac4b14e1fc305474aa5f8bb96404709f,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114684160405862448, guid: ac4b14e1fc305474aa5f8bb96404709f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 2}
   m_IsPrefabAsset: 0
@@ -4986,6 +5001,16 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 54654609236443096, guid: 9c34ef1b3ae99b74dad27c90060df8aa,
+        type: 2}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114344831379178760, guid: 9c34ef1b3ae99b74dad27c90060df8aa,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c34ef1b3ae99b74dad27c90060df8aa, type: 2}
   m_IsPrefabAsset: 0
@@ -5053,6 +5078,11 @@ Prefab:
     - target: {fileID: 4267710624038506, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
       propertyPath: m_LocalPosition.y
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114478025308680234, guid: 6fc2c1b626b07a8478b882460fbd7963,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
