@@ -83,6 +83,7 @@ public class LevelEditorScript : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(Input.GetAxis("Menu Y-Axis"));
         if (Input.GetButtonDown("Back Button 1"))
         {
             OpenCloseObjectSelectionMenu();
@@ -127,15 +128,15 @@ public class LevelEditorScript : MonoBehaviour
             }
             if (allowPointerMovementX)
             {
-                if (Input.GetAxis("D Pad X 1") != 0)
+                if (Input.GetAxis("Menu X-Axis") != 0)
                 {
-                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("D Pad X 1"));
+                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
                     allowPointerMovementX = false;
                 }
             }
             else
             {
-                if (Input.GetAxis("D Pad X 1") == 0)
+                if (Input.GetAxis("Menu X-Axis") == 0)
                 {
                     allowPointerMovementX = true;
                     fastPointerMovementTimerX = 0;
@@ -146,20 +147,20 @@ public class LevelEditorScript : MonoBehaviour
                 }
                 else
                 {
-                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("D Pad X 1"));
+                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
                 }
             }
             if (allowPointerMovementY)
             {
-                if (Input.GetAxis("D Pad Y 1") != 0)
+                if (Input.GetAxis("Menu Y-Axis") != 0)
                 {
-                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("D Pad Y 1"));
+                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
                     allowPointerMovementY = false;
                 }
             }
             else
             {
-                if (Input.GetAxis("D Pad Y 1") == 0)
+                if (Input.GetAxis("Menu Y-Axis") == 0)
                 {
                     allowPointerMovementY = true;
                     fastPointerMovementTimerY = 0;
@@ -170,7 +171,7 @@ public class LevelEditorScript : MonoBehaviour
                 }
                 else
                 {
-                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("D Pad Y 1"));
+                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
                 }
             }
         }
@@ -304,7 +305,7 @@ public class LevelEditorScript : MonoBehaviour
         }
         if (i != 0)
         {
-            Instantiate(GameManager.ObjectForLoadingLevels[i - 1], pointer.transform);
+            Instantiate(GameManager.ObjectForLoadingLevels[i - 1], pointer.transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentHoldObjectRotation));
         }
     }
 

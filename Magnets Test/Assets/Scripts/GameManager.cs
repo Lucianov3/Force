@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public static LevelEditorScript Editor;
 
-    public static bool isGravityOn = true;
+    public static bool isGravityOn = false;
 
     private void Start()
     {
@@ -35,10 +35,6 @@ public class GameManager : MonoBehaviour
                         {
                             obj.GetComponent<GateScript>().Channel = level.Content[i, j, k].Channel;
                         }
-                        else if (obj.GetComponent<SwitchScript>() != null)
-                        {
-                            obj.GetComponent<SwitchScript>().Channel = level.Content[i, j, k].Channel;
-                        }
                         else if (obj.GetComponent<PlayerPhysicController>() != null)
                         {
                             obj.GetComponent<Rigidbody>().isKinematic = false;
@@ -53,6 +49,10 @@ public class GameManager : MonoBehaviour
                             else if (obj.transform.GetChild(0).GetComponent<LevelCompleteScript>() != null)
                             {
                                 obj.transform.GetChild(0).GetComponent<LevelCompleteScript>().LevelLoad = "LevelEditor";
+                            }
+                            else if (obj.transform.GetChild(0).GetComponent<SwitchScript>() != null)
+                            {
+                                obj.transform.GetChild(0).GetComponent<SwitchScript>().Channel = level.Content[i, j, k].Channel;
                             }
                         }
                     }

@@ -118,6 +118,10 @@ public class PlayerPhysicController : MonoBehaviour
         if (orientation == Orientation.UP)
         {
             float floatDestination = Input.GetAxis(trigger) * maxHeight;
+            if (animationCrouched)
+            {
+                floatDestination = 0;
+            }
             float currentHeight = transform.position.y - groundValue;
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
@@ -134,6 +138,10 @@ public class PlayerPhysicController : MonoBehaviour
         else if (orientation == Orientation.DOWN)
         {
             float floatDestination = -Input.GetAxis(trigger) * maxHeight;
+            if (animationCrouched)
+            {
+                floatDestination = 0;
+            }
             float currentHeight = transform.position.y + groundValue;
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
@@ -147,25 +155,43 @@ public class PlayerPhysicController : MonoBehaviour
             float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
         }
+        if (Input.GetButton(duckButton))
+        {
+            animationCrouched = true;
+            if (Controls.TwoPlayerMode)
+            {
+                GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.1f, 0.1f);
+            }
+            else
+            {
+                GamePad.SetVibration(PlayerIndex.One, 0.1f, 0.1f);
+            }
+            playerVelocity = new Vector3(playerVelocity.x / 2, playerVelocity.y);
+        }
+        else
+        {
+            animationCrouched = false;
+            if (Controls.TwoPlayerMode)
+            {
+                GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.0f, 0.0f);
+            }
+            else
+            {
+                GamePad.SetVibration(PlayerIndex.One, 0.0f, 0.0f);
+            }
+        }
         rb.velocity = playerVelocity;
         rb.AddForce(gravity, ForceMode.VelocityChange);
         if (holdingObject && Input.GetButtonDown(interactButton))
         {
             Invoke("SetHoldingObjectFalse", 0.1f);
             objectHold.transform.parent = null;
+            objectHold.transform.rotation = Quaternion.Euler(0, 0, 0);
+            objectHold.transform.localPosition = new Vector3(objectHold.transform.position.x, objectHold.transform.position.y, 0);
             objectHold.transform.GetComponent<Rigidbody>().isKinematic = false;
             objectHold.transform.GetComponent<Collider>().enabled = true;
+            objectHold.GetComponent<GravityScript>().IsObjectHeld = false;
             objectHold = null;
-        }
-        if (Input.GetButton(duckButton))
-        {
-            animationCrouched = true;
-            GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.1f, 0.1f);
-        }
-        else
-        {
-            animationCrouched = false;
-            GamePad.SetVibration(player == Player.PLAYER1 ? PlayerIndex.One : PlayerIndex.Two, 0.0f, 0.0f);
         }
     }
 
@@ -197,9 +223,11 @@ public class PlayerPhysicController : MonoBehaviour
         {
             holdingObject = true;
             objectHold = collider.gameObject;
-            collider.transform.SetParent(transform);
+            collider.transform.SetParent(transform.GetChild(0).GetChild(0).GetChild(0));
+            objectHold.transform.localPosition = new Vector3(0, 0, 0);
             collider.transform.GetComponent<Rigidbody>().isKinematic = true;
             collider.transform.GetComponent<Collider>().enabled = false;
+            collider.GetComponent<GravityScript>().IsObjectHeld = true;
         }
     }
 
