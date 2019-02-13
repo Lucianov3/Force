@@ -1221,8 +1221,13 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4012208230664610, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 23175140148069006, guid: 579fdb2be07210344b5416b8d55e844d,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fe1014284987e9b4b8d95a2f47615d58, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 579fdb2be07210344b5416b8d55e844d, type: 2}
   m_IsPrefabAsset: 0
@@ -1435,6 +1440,18 @@ Prefab:
         type: 2}
       propertyPath: LevelLoad
       value: Level003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915398056835526, guid: 156162f34c7953945a2672cd95656664, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4915398056835526, guid: 156162f34c7953945a2672cd95656664, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4194278723210494, guid: 156162f34c7953945a2672cd95656664, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 156162f34c7953945a2672cd95656664, type: 2}
@@ -5028,6 +5045,14 @@ Prefab:
         type: 2}
       propertyPath: LevelLoad
       value: Level003
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267710624038506, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 18.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4267710624038506, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
