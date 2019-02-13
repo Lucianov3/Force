@@ -3,26 +3,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class LevelEditorButtonScript : MonoBehaviour
 {
-    public string LevelName;
+    public int LevelNumber = 0;
 
-    public Text Text;
+    public TextMeshProUGUI Text;
 
-    public void SetLevelName()
+    public void CountLevelNumberUp()
     {
-        LevelName = Text.text;
+        if (LevelNumber < 99)
+        {
+            LevelNumber++;
+        }
+        Text.text = LevelNumber.ToString();
+    }
+
+    public void CountLevelNumbeDown()
+    {
+        if (LevelNumber > 0)
+        {
+            LevelNumber--;
+        }
+        Text.text = LevelNumber.ToString();
     }
 
     public void LoadLevel()
     {
-        GameManager.Editor.EditLevel.LoadLevelFromJson(Application.dataPath + "/Levels/" + LevelName + ".txt");
+        GameManager.Editor.EditLevel.LoadLevelFromJson(Application.dataPath + "/Levels/Level" + LevelNumber + ".txt");
         GameManager.LoadLevelIntoMapEditor();
     }
 
     public void SaveLevel()
     {
-        GameManager.Editor.EditLevel.SaveLevelToJson(Application.dataPath + "/Levels/" + LevelName + ".txt");
+        GameManager.Editor.EditLevel.SaveLevelToJson(Application.dataPath + "/Levels/Level" + LevelNumber + ".txt");
     }
 }

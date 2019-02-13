@@ -10,6 +10,7 @@ public class TestLevel : MonoBehaviour
     private void Start()
     {
         GameManager.LoadLevel(TestLvl);
+        GameManager.isGravityOn = true;
     }
 
     private void Update()
@@ -18,5 +19,10 @@ public class TestLevel : MonoBehaviour
         {
             SceneManager.LoadScene("LevelEditor");
         }
+    }
+
+    private void OnDisable()
+    {
+        GameManager.isGravityOn = false;
     }
 }
