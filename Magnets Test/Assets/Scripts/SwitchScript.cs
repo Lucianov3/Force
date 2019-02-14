@@ -6,6 +6,8 @@ public class SwitchScript : MonoBehaviour
 {
     public int Channel = 0;
 
+    private int numberOfObjectOnSwitch = 0;
+
     private void Start()
     {
         TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
@@ -16,7 +18,11 @@ public class SwitchScript : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
-            ActivateSwitch();
+            numberOfObjectOnSwitch++;
+            if (numberOfObjectOnSwitch == 1)
+            {
+                ActivateSwitch();
+            }
         }
     }
 
@@ -24,21 +30,31 @@ public class SwitchScript : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))
         {
-            DeactivateSwitch();
+            numberOfObjectOnSwitch--;
+            if (numberOfObjectOnSwitch == 0)
+            {
+                DeactivateSwitch();
+            }
         }
     }
 
     private void ActivateSwitch()
     {
         TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]++;
-        TransmitterEventManager.OnTransmitterActivation(Channel);
+        if (TransmitterEventManager.OnTransmitterActivation != null)
+        {
+            TransmitterEventManager.OnTransmitterActivation(Channel);
+        }
         gameObject.GetComponent<MeshRenderer>().enabled = false;
     }
 
     private void DeactivateSwitch()
     {
         TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
-        TransmitterEventManager.OnTransmitterDeactivation(Channel);
+        if (TransmitterEventManager.OnTransmitterDeactivation != null)
+        {
+            TransmitterEventManager.OnTransmitterDeactivation(Channel);
+        }
         gameObject.GetComponent<MeshRenderer>().enabled = true;
     }
 }

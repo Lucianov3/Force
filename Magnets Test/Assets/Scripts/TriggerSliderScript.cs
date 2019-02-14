@@ -31,7 +31,10 @@ public class TriggerSliderScript : MonoBehaviour
             {
                 activated = true;
                 TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]++;
-                TransmitterEventManager.OnTransmitterActivation(Channel);
+                if (TransmitterEventManager.OnTransmitterActivation != null)
+                {
+                    TransmitterEventManager.OnTransmitterActivation(Channel);
+                }
             }
         }
     }
@@ -55,7 +58,10 @@ public class TriggerSliderScript : MonoBehaviour
             {
                 activated = false;
                 TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
-                TransmitterEventManager.OnTransmitterDeactivation(Channel);
+                if (TransmitterEventManager.OnTransmitterDeactivation != null)
+                {
+                    TransmitterEventManager.OnTransmitterDeactivation(Channel);
+                }
             }
         }
     }

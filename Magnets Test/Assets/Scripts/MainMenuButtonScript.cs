@@ -15,4 +15,9 @@ public class MainMenuButtonScript : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void ChangePlayerMode(bool active)
+    {
+        Controls.TwoPlayerMode = active;
+    }
 }

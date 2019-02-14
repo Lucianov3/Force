@@ -128,11 +128,11 @@ public class PlayerPhysicController : MonoBehaviour
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 180, 0));
             }
             else if (Input.GetAxis(joystickX) < 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(0, 0, 0));
             }
             float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
@@ -148,11 +148,11 @@ public class PlayerPhysicController : MonoBehaviour
             playerVelocity.y = (floatDestination - currentHeight) * verticalSpeed;
             if (Input.GetAxis(joystickX) > 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(180, 180, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(180, 180, 0));
             }
             else if (Input.GetAxis(joystickX) < 0)
             {
-                rb.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
+                transform.rotation = Quaternion.Euler(new Vector3(180, 0, 0));
             }
             float horizontalMovement = Input.GetAxis(joystickX) * horizontalSpeed;
             playerVelocity.x = horizontalMovement;
@@ -191,11 +191,11 @@ public class PlayerPhysicController : MonoBehaviour
             objectHold.transform.rotation = Quaternion.Euler(0, 0, 0);
             objectHold.transform.localPosition = new Vector3(objectHold.transform.position.x, objectHold.transform.position.y, 0);
             objectHold.transform.GetComponent<Rigidbody>().isKinematic = false;
-            objectHold.transform.GetComponent<Collider>().enabled = true;
+            objectHold.transform.GetComponent<Collider>().isTrigger = false;
             objectHold.GetComponent<GravityScript>().IsObjectHeld = false;
             objectHold = null;
         }
-        if (Physics.Raycast(transform.position + Vector3.up, player == Player.PLAYER1 ? Vector3.down : Vector3.up, 1.5f))
+        if (Physics.Raycast(transform.position + (player == Player.PLAYER1 ? Vector3.up : Vector3.down), player == Player.PLAYER1 ? Vector3.down : Vector3.up, 1.5f))
         {
             animationFlying = false;
         }
@@ -248,7 +248,7 @@ public class PlayerPhysicController : MonoBehaviour
             collider.transform.SetParent(transform.GetChild(0).GetChild(0).GetChild(0));
             objectHold.transform.localPosition = new Vector3(0, 0.4f, 0);
             collider.transform.GetComponent<Rigidbody>().isKinematic = true;
-            collider.transform.GetComponent<Collider>().enabled = false;
+            collider.transform.GetComponent<Collider>().isTrigger = true;
             collider.GetComponent<GravityScript>().IsObjectHeld = true;
         }
     }

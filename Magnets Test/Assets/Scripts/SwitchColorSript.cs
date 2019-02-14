@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SwitchColorSript : MonoBehaviour
 {
-    [SerializeField] private Texture blue;
-    [SerializeField] private Texture red;
+    [SerializeField, ColorUsage(false, true)] private Color blue;
+    [SerializeField, ColorUsage(false, true)] private Color red;
     [SerializeField] private bool isTop = false;
     private Material material;
 
@@ -18,28 +18,24 @@ public class SwitchColorSript : MonoBehaviour
     {
         if (isTop)
         {
-            if (Input.GetAxis("Right Trigger 1") > 0)
+            if (Input.GetAxis(Controls.RedPlayerHover) > 0)
             {
-                material.SetTexture("_EmissionMap", red);
-                //material.SetTexture("_MainTex", red);
+                material.SetColor("_EmissionColor", red);
             }
             else
             {
-                material.SetTexture("_EmissionMap", blue);
-                //material.SetTexture("_MainTex", blue);
+                material.SetColor("_EmissionColor", blue);
             }
         }
         else
         {
-            if (Input.GetAxis("Left Trigger 1") > 0)
+            if (Input.GetAxis(Controls.BluePlayerHover) > 0)
             {
-                material.SetTexture("_EmissionMap", blue);
-                //material.SetTexture("_MainTex", blue);
+                material.SetColor("_EmissionColor", blue);
             }
             else
             {
-                material.SetTexture("_EmissionMap", red);
-                //material.SetTexture("_MainTex", red);
+                material.SetColor("_EmissionColor", red);
             }
         }
     }
