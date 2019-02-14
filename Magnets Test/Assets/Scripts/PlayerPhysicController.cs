@@ -115,7 +115,6 @@ public class PlayerPhysicController : MonoBehaviour
     private void FixedUpdate()
     {
         playerVelocity = Vector3.zero;
-        //animationFlying = Input.GetAxis(trigger) > 0 ? true : false;
         animationWalkingSpeed = Mathf.Abs(Input.GetAxis(joystickX));
         if (orientation == Orientation.UP)
         {
