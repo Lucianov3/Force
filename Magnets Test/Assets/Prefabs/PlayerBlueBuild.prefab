@@ -850,7 +850,7 @@ MonoBehaviour:
   player: 1
   particleEffect: {fileID: 1978207608337376, guid: 1c38a98e6ab545d4a93db866d2de62cc,
     type: 2}
-  timeTillPlayerRespawn: 1
+  timeTillPlayerRespawn: 1.5
 --- !u!136 &136753950814935376
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -37,20 +37,31 @@ public class Level
 
     public void LoadLevelFromJson(string path)
     {
-        using (StreamReader reader = File.OpenText(path))
+        if (File.Exists(path))
         {
-            JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
-            Level level = JsonConvert.DeserializeObject<Level>(o.ToString());
-            this.Name = level.Name;
-            this.Content = level.Content;
-            this.TopOrientation = level.TopOrientation;
-            this.BotOrientation = level.BotOrientation;
+            using (StreamReader reader = File.OpenText(path))
+            {
+                JObject o = (JObject)JToken.ReadFrom(new JsonTextReader(reader));
+                Level level = JsonConvert.DeserializeObject<Level>(o.ToString());
+                this.Name = level.Name;
+                this.Content = level.Content;
+                this.TopOrientation = level.TopOrientation;
+                this.BotOrientation = level.BotOrientation;
+            }
+            Debug.Log("Level Succesfully loaded");
         }
-        Debug.Log("Level Succesfully loaded");
+        else
+        {
+            Debug.Log("Level doesn't Exist");
+        }
     }
 
     public void SaveLevelToJson(string path)
     {
+        if (!Directory.Exists(Application.dataPath + "/Levels/"))
+        {
+            Directory.CreateDirectory(Application.dataPath + "/Levels/");
+        }
         File.WriteAllText(path, JsonConvert.SerializeObject(this));
 
         // write JSON directly to a file
