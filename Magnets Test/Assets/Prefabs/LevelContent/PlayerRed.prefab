@@ -844,9 +844,9 @@ MonoBehaviour:
   orientation: 0
   gravity: {x: 0, y: -1, z: 0}
   maxHeight: 15
-  groundValue: 0.9
-  verticalSpeed: 2.5
-  horizontalSpeed: 9
+  groundValue: 0.6
+  verticalSpeed: 100
+  horizontalSpeed: 360
   player: 0
   particleEffect: {fileID: 1221325706342982, guid: 3da5b72e78c819b4290273a86568da21,
     type: 2}

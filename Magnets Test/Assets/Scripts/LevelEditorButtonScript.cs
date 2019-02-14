@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -38,5 +39,10 @@ public class LevelEditorButtonScript : MonoBehaviour
     public void SaveLevel()
     {
         GameManager.Editor.EditLevel.SaveLevelToJson(Application.dataPath + "/Levels/Level" + LevelNumber + ".txt");
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
