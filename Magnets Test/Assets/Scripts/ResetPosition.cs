@@ -10,7 +10,7 @@ public class ResetPosition : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!collision.collider.isTrigger)
+        if (!collision.collider.isTrigger && collision.collider.CompareTag("Player"))
         {
             onPlayerCollision(collision.collider.transform.parent.gameObject.name);
         }
