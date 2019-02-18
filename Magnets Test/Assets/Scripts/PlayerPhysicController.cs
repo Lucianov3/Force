@@ -24,9 +24,6 @@ public class PlayerPhysicController : MonoBehaviour
     private string joystickY;
     private string interactButton;
     private string duckButton;
-
-    private bool holdingObject = false;
-    private GameObject objectHold;
     private Rigidbody rb;
     private Vector3 playerVelocity = new Vector3();
     private Animator animator;
@@ -183,17 +180,6 @@ public class PlayerPhysicController : MonoBehaviour
         }
         rb.velocity = playerVelocity * Time.fixedDeltaTime;
         rb.AddForce(gravity * Time.fixedDeltaTime, ForceMode.VelocityChange);
-        if (holdingObject && Input.GetButtonDown(interactButton))
-        {
-            Invoke("SetHoldingObjectFalse", 0.1f);
-            objectHold.transform.parent = null;
-            objectHold.transform.rotation = Quaternion.Euler(0, 0, 0);
-            objectHold.transform.localPosition = new Vector3(objectHold.transform.position.x, objectHold.transform.position.y, 0);
-            objectHold.transform.GetComponent<Rigidbody>().isKinematic = false;
-            objectHold.transform.GetComponent<Collider>().isTrigger = false;
-            objectHold.GetComponent<GravityScript>().IsObjectHeld = false;
-            objectHold = null;
-        }
         if (Physics.Raycast(transform.position + (player == Player.PLAYER1 ? Vector3.up : Vector3.down), player == Player.PLAYER1 ? Vector3.down : Vector3.up, 1.5f))
         {
             animationFlying = false;
@@ -226,30 +212,10 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void SetControlsStrings()
     {
-        trigger = player == Player.PLAYER1 ? Controls.RedPlayerHover : Controls.BluePlayerHover;
-        joystickX = player == Player.PLAYER1 ? Controls.RedPlayerMovementX : Controls.BluePlayerMovementX;
-        joystickY = player == Player.PLAYER1 ? Controls.RedPlayerMovementY : Controls.BluePlayerMovementY;
-        interactButton = player == Player.PLAYER1 ? Controls.RedPlayerInteract : Controls.BluePlayerInteract;
-        duckButton = player == Player.PLAYER1 ? Controls.RedPlayerDuck : Controls.BluePlayerDuck;
-    }
-
-    private void SetHoldingObjectFalse()
-    {
-        holdingObject = false;
-    }
-
-    private void OnTriggerStay(Collider collider)
-    {
-        if (!holdingObject && collider.CompareTag("Pick Up") && Input.GetButtonDown(interactButton))
-        {
-            holdingObject = true;
-            objectHold = collider.gameObject;
-            collider.transform.SetParent(transform.GetChild(0).GetChild(0).GetChild(0));
-            objectHold.transform.localPosition = new Vector3(0, 0.4f, 0);
-            collider.transform.GetComponent<Rigidbody>().isKinematic = true;
-            collider.transform.GetComponent<Collider>().isTrigger = true;
-            collider.GetComponent<GravityScript>().IsObjectHeld = true;
-        }
+        trigger = player == Player.PLAYER1 ? Controls.TopPlayerHover : Controls.BottomPlayerHover;
+        joystickX = player == Player.PLAYER1 ? Controls.TopPlayerMovementX : Controls.BottomPlayerMovementX;
+        joystickY = player == Player.PLAYER1 ? Controls.TopPlayerMovementY : Controls.BottomPlayerMovementY;
+        duckButton = player == Player.PLAYER1 ? Controls.TopPlayerDuck : Controls.BottomPlayerDuck;
     }
 
     public void StartSound(AudioClip audioClip)
