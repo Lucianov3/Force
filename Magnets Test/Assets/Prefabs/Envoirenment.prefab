@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 65966961241608976}
   - component: {fileID: 114082403849457684}
   m_Layer: 0
-  m_Name: RedMagnet
+  m_Name: BlueMagnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 65937508071740742}
   - component: {fileID: 114820130482837884}
   m_Layer: 0
-  m_Name: BlueMagnet
+  m_Name: RedMagnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,7 +438,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 9d1a52e02561fd64ab13b84257a2bf86, type: 2}
+  - {fileID: 2100000, guid: a096080154946ce45a8cf849e773c155, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -473,7 +473,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: a096080154946ce45a8cf849e773c155, type: 2}
+  - {fileID: 2100000, guid: 9d1a52e02561fd64ab13b84257a2bf86, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -706,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d1782990afcf646805066470d9a8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blue: {r: 0, g: 1.2202282, b: 2.6701574, a: 0}
-  red: {r: 1, g: 0, b: 0.7233753, a: 0}
+  blue: {r: 1, g: 0, b: 0.72156864, a: 0}
+  red: {r: 0, g: 1.3803922, b: 2.9960785, a: 0}
   isTop: 0
 --- !u!114 &114820130482837884
 MonoBehaviour:
@@ -720,8 +720,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12d1782990afcf646805066470d9a8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blue: {r: 0, g: 1.2202282, b: 2.6701574, a: 0}
-  red: {r: 1, g: 0, b: 0.7233753, a: 0}
+  blue: {r: 1, g: 0, b: 0.72156864, a: 0}
+  red: {r: 0, g: 1.2302293, b: 2.6701567, a: 0}
   isTop: 1
 --- !u!212 &212301930644189150
 SpriteRenderer:
