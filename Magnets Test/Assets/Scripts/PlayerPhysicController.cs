@@ -206,8 +206,15 @@ public class PlayerPhysicController : MonoBehaviour
 
     private void KillPlayer()
     {
-        Instantiate(particleEffect, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(particleEffect, transform.position, Quaternion.identity);
+        StartCoroutine(DestroyParticle(obj));
         rb.position = new Vector3(99, 99, 99);
+    }
+
+    private IEnumerator DestroyParticle(GameObject obj)
+    {
+        yield return new WaitForSeconds(5.0f);
+        Destroy(obj);
     }
 
     private void SetControlsStrings()
