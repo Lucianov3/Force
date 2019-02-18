@@ -506,6 +506,11 @@ Prefab:
       propertyPath: eventSystem
       value: 
       objectReference: {fileID: 864647835}
+    - target: {fileID: 114513505579656478, guid: 9a8303eaf20d91a43be2fba06b0cce1e,
+        type: 2}
+      propertyPath: eventSystem
+      value: 
+      objectReference: {fileID: 864647835}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a8303eaf20d91a43be2fba06b0cce1e, type: 2}
   m_IsPrefabAsset: 0
@@ -1195,6 +1200,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2004,6 +2014,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -2130,6 +2145,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2965,6 +2985,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -3887,6 +3912,11 @@ Prefab:
     - target: {fileID: 4129731221322040, guid: b23831997f323fb458ad7beb648801ed, type: 2}
       propertyPath: m_LocalPosition.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977883644044256, guid: b23831997f323fb458ad7beb648801ed,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23831997f323fb458ad7beb648801ed, type: 2}
@@ -5413,6 +5443,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -5814,6 +5849,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -6128,6 +6168,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -6227,6 +6272,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -6748,6 +6798,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}

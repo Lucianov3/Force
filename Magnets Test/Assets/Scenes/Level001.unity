@@ -207,6 +207,11 @@ Prefab:
       propertyPath: m_Name
       value: Switch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114977883644044256, guid: b23831997f323fb458ad7beb648801ed,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23831997f323fb458ad7beb648801ed, type: 2}
   m_IsPrefabAsset: 0
@@ -698,7 +703,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4009310882653218, guid: a4ea7bc1a1fe6ca4d997adbf597390ce, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 4009310882653218, guid: a4ea7bc1a1fe6ca4d997adbf597390ce, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1067,6 +1072,11 @@ Prefab:
     - target: {fileID: 4797575607372338, guid: b23831997f323fb458ad7beb648801ed, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977883644044256, guid: b23831997f323fb458ad7beb648801ed,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b23831997f323fb458ad7beb648801ed, type: 2}
@@ -1614,6 +1624,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -2051,6 +2066,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -2163,6 +2183,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -2213,6 +2238,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2570,6 +2600,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -2707,6 +2742,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2991,6 +3031,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -3614,6 +3659,11 @@ Prefab:
       propertyPath: m_Name
       value: Gate (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
   m_IsPrefabAsset: 0
@@ -3859,7 +3909,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4009310882653218, guid: a4ea7bc1a1fe6ca4d997adbf597390ce, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -11
+      value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 4009310882653218, guid: a4ea7bc1a1fe6ca4d997adbf597390ce, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3939,6 +3989,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -4208,6 +4263,11 @@ Prefab:
     - target: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
       propertyPath: m_Name
       value: Gate (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
+        type: 2}
+      propertyPath: Channel
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}

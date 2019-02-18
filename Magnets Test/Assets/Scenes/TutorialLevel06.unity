@@ -448,7 +448,7 @@ Prefab:
     - target: {fileID: 114845143163149088, guid: 43636d107b4426447b01064af89f9308,
         type: 2}
       propertyPath: LevelLoad
-      value: MainMenu
+      value: TutorialLevel07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43636d107b4426447b01064af89f9308, type: 2}
@@ -1474,7 +1474,7 @@ Prefab:
     - target: {fileID: 114715805771907994, guid: 0c0f6fb45def3cc4ea9890af2cdc47cb,
         type: 2}
       propertyPath: LevelLoad
-      value: MainMenu
+      value: TutorialLevel07
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0f6fb45def3cc4ea9890af2cdc47cb, type: 2}
