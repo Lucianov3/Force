@@ -449,7 +449,7 @@ Transform:
   - {fileID: 1209594321}
   - {fileID: 179672771}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &124264152
 Prefab:
@@ -609,7 +609,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4707789960413966, guid: b813f80665c31054da3b7ad782145b63, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1510283491460382, guid: b813f80665c31054da3b7ad782145b63, type: 2}
       propertyPath: m_Name
@@ -948,7 +948,7 @@ Transform:
   - {fileID: 208348563}
   - {fileID: 339952827}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &262509926
 Prefab:
@@ -1658,7 +1658,7 @@ Prefab:
     - target: {fileID: 114105114639102280, guid: 156162f34c7953945a2672cd95656664,
         type: 2}
       propertyPath: LevelLoad
-      value: Level005
+      value: TutorialLevel05
       objectReference: {fileID: 0}
     - target: {fileID: 4194278723210494, guid: 156162f34c7953945a2672cd95656664, type: 2}
       propertyPath: m_RootOrder
@@ -2852,7 +2852,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &881805220
 Prefab:
@@ -3282,34 +3282,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7625e7759b255945be13f717b50043e, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &996752199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 996752200}
-  m_Layer: 0
-  m_Name: Cubes
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &996752200
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 996752199}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1005736681 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e,
@@ -3600,7 +3572,7 @@ RectTransform:
   - {fileID: 1708110922}
   - {fileID: 1460250224}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5022,7 +4994,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4821115426224042, guid: 07540831d446b2d41b969fb6847238dd, type: 2}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07540831d446b2d41b969fb6847238dd, type: 2}
@@ -5119,7 +5091,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4045810118311822, guid: f3451bd7dede53147937c7d7918ec378, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3451bd7dede53147937c7d7918ec378, type: 2}
@@ -5388,7 +5360,7 @@ Prefab:
     - target: {fileID: 114478025308680234, guid: 6fc2c1b626b07a8478b882460fbd7963,
         type: 2}
       propertyPath: LevelLoad
-      value: Level005
+      value: TutorialLevel05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc2c1b626b07a8478b882460fbd7963, type: 2}
@@ -5544,6 +5516,7 @@ GameObject:
   - component: {fileID: 1708110922}
   - component: {fileID: 1708110924}
   - component: {fileID: 1708110923}
+  - component: {fileID: 1708110925}
   m_Layer: 5
   m_Name: PlayerCrouchtText
   m_TagString: Untagged
@@ -5567,7 +5540,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -78.03, y: 0}
+  m_AnchoredPosition: {x: -167.3, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1708110923
@@ -5589,8 +5562,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: "dont touch the <#FFFF00>laser</color> you will get \nspawn back to your
-    start position"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
   m_sharedMaterial: {fileID: 21986656626907368, guid: ff2f12daec2f3d54f86fde351c8f613d,
@@ -5659,13 +5631,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -143.37341, w: 0}
   m_textInfo:
     textComponent: {fileID: 1708110923}
-    characterCount: 68
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 13
-    wordCount: 13
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 2
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
@@ -5692,6 +5664,19 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1708110921}
   m_CullTransparentMesh: 0
+--- !u!114 &1708110925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1708110921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290a4f356eb54fe4bb1db278cce010e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onePlayerText: touching the <#FFFF00>laser</color> will lead to your immediate death
+  twoPlayerText: touching the <#FFFF00>laser</color> will lead to your immediate death
 --- !u!4 &1719919730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e,
