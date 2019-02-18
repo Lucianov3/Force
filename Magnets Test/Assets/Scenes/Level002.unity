@@ -910,7 +910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.72, y: 1.61}
+  m_AnchoredPosition: {x: -21.5, y: 1.61}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323416272
@@ -1081,7 +1081,7 @@ Prefab:
     - target: {fileID: 114933383848353228, guid: 8fadac787555b394fac4d0e0df11ff42,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fadac787555b394fac4d0e0df11ff42, type: 2}
@@ -1637,7 +1637,7 @@ Prefab:
     - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2555,7 +2555,7 @@ Prefab:
     - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -2621,7 +2621,7 @@ Prefab:
     - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -3316,7 +3316,7 @@ Prefab:
     - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}
@@ -3951,7 +3951,7 @@ Prefab:
     - target: {fileID: 114621716921721266, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165,
         type: 2}
       propertyPath: Channel
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 2}

@@ -18,10 +18,10 @@ public class TriggerSliderScript : MonoBehaviour
         TransmitterEventManager.IsChannelInMulitMode[Channel] = true;
     }
 
-    private void OnDisable()
-    {
-        TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]--;
-    }
+    //private void OnDisable()
+    //{
+    //    TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]--;
+    //}
 
     private void Update()
     {

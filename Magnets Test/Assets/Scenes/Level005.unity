@@ -593,6 +593,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114845143163149088, guid: 43636d107b4426447b01064af89f9308,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level006
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43636d107b4426447b01064af89f9308, type: 2}
   m_IsPrefabAsset: 0
@@ -835,7 +840,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.72, y: 1.61}
+  m_AnchoredPosition: {x: -21.5, y: 1.61}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &323416272
@@ -3443,7 +3448,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Press      to select
+  m_text: Press      to continue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff2f12daec2f3d54f86fde351c8f613d, type: 2}
   m_sharedMaterial: {fileID: 21986656626907368, guid: ff2f12daec2f3d54f86fde351c8f613d,
@@ -3512,7 +3517,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1676474188}
-    characterCount: 20
+    characterCount: 22
     spriteCount: 0
     spaceCount: 7
     wordCount: 3
@@ -4182,6 +4187,11 @@ Prefab:
     - target: {fileID: 4039629373979948, guid: 0c0f6fb45def3cc4ea9890af2cdc47cb, type: 2}
       propertyPath: m_RootOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114715805771907994, guid: 0c0f6fb45def3cc4ea9890af2cdc47cb,
+        type: 2}
+      propertyPath: LevelLoad
+      value: Level006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c0f6fb45def3cc4ea9890af2cdc47cb, type: 2}
