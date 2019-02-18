@@ -6,7 +6,7 @@ public class ResetPosition : MonoBehaviour
 {
     public delegate void OnPlayerCollision(string name);
 
-    public static event OnPlayerCollision onPlayerCollision;
+    public static OnPlayerCollision onPlayerCollision;
 
     private void OnCollisionEnter(Collision collision)
     {

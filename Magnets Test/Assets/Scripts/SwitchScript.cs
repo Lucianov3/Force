@@ -14,6 +14,11 @@ public class SwitchScript : MonoBehaviour
         TransmitterEventManager.IsChannelInMulitMode[Channel] = true;
     }
 
+    private void OnDisable()
+    {
+        TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]--;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && !other.isTrigger || other.CompareTag("Pick Up"))

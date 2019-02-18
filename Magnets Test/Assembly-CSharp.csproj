@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\MainMenuButtonScript.cs" />
     <Compile Include="Assets\Scripts\PlayerPhysicController.cs" />
     <Compile Include="Assets\Scripts\ResetPosition.cs" />
+    <Compile Include="Assets\Scripts\RestartLevel.cs" />
     <Compile Include="Assets\Scripts\SenderEventManager.cs" />
     <Compile Include="Assets\Scripts\SwitchColorSript.cs" />
     <Compile Include="Assets\Scripts\SwitchScript.cs" />

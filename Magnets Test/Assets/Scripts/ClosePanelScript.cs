@@ -6,6 +6,11 @@ public class ClosePanelScript : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
 
+    private void Start()
+    {
+        Time.timeScale = 0;
+    }
+
     private void Update()
     {
         ClosePanel();
@@ -15,6 +20,8 @@ public class ClosePanelScript : MonoBehaviour
     {
         if (Input.GetButtonDown("Menu A Button"))
         {
+            Time.timeScale = 1;
+
             panel.SetActive(false);
         }
     }
