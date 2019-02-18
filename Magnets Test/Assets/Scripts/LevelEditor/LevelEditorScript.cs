@@ -123,11 +123,11 @@ public class LevelEditorScript : MonoBehaviour
                 isPointerUp = !isPointerUp;
                 UpdatePointer();
             }
-            if (Input.GetButtonDown("Left Bumper 1"))
+            if (Input.GetButtonDown("Right Bumper 1"))
             {
                 RotateHeldObject(90);
             }
-            if (Input.GetButtonDown("Right Bumper 1"))
+            if (Input.GetButtonDown("Left Bumper 1"))
             {
                 RotateHeldObject(-90);
             }
@@ -281,7 +281,7 @@ public class LevelEditorScript : MonoBehaviour
             CloseAllMenus();
             isMenuOpen = true;
             menu.SetActive(true);
-            eventSystem.SetSelectedGameObject(menu.transform.GetChild(0).GetChild(0).gameObject);
+            eventSystem.SetSelectedGameObject(menu.transform.GetChild(0).gameObject);
         }
     }
 

@@ -18,7 +18,7 @@ public class SwitchColorSript : MonoBehaviour
     {
         if (isTop)
         {
-            if (Input.GetAxis(Controls.TopPlayerHover) > 0)
+            if (Input.GetAxis(Controls.RedPlayerHover) > 0)
             {
                 material.SetColor("_EmissionColor", red);
             }
@@ -29,7 +29,7 @@ public class SwitchColorSript : MonoBehaviour
         }
         else
         {
-            if (Input.GetAxis(Controls.BotoomPlayerHover) > 0)
+            if (Input.GetAxis(Controls.BluePlayerHover) > 0)
             {
                 material.SetColor("_EmissionColor", blue);
             }

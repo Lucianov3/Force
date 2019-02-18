@@ -4,7 +4,7 @@
     public static bool PlayerOneAltControls = false;
     public static bool PlayerTwoAltControls = false;
 
-    public static string TopPlayerMovementX
+    public static string RedPlayerMovementX
     {
         get
         {
@@ -29,7 +29,7 @@
         }
     }
 
-    public static string TopPlayerMovementY
+    public static string RedPlayerMovementY
     {
         get
         {
@@ -54,7 +54,7 @@
         }
     }
 
-    public static string BottomPlayerMovementX
+    public static string BluePlayerMovementX
     {
         get
         {
@@ -86,7 +86,7 @@
         }
     }
 
-    public static string BottomPlayerMovementY
+    public static string BluePlayerMovementY
     {
         get
         {
@@ -118,13 +118,63 @@
         }
     }
 
-    public static string TopPlayerHover
+    public static string RedPlayerInteract
     {
         get
         {
             if (!TwoPlayerMode)
             {
-                return "Left Trigger 1";
+                return "Y Button 1";
+            }
+            else
+            {
+                if (!PlayerOneAltControls)
+                {
+                    return "A Button 1";
+                }
+                else
+                {
+                    return "Y Button 1";
+                }
+            }
+        }
+        private set
+        {
+        }
+    }
+
+    public static string BluePlayerInteract
+    {
+        get
+        {
+            if (!TwoPlayerMode)
+            {
+                return "A Button 1";
+            }
+            else
+            {
+                if (!PlayerTwoAltControls)
+                {
+                    return "Y Button 2";
+                }
+                else
+                {
+                    return "A Button 2";
+                }
+            }
+        }
+        private set
+        {
+        }
+    }
+
+    public static string RedPlayerHover
+    {
+        get
+        {
+            if (!TwoPlayerMode)
+            {
+                return "Right Trigger 1";
             }
             else
             {
@@ -143,13 +193,13 @@
         }
     }
 
-    public static string BotoomPlayerHover
+    public static string BluePlayerHover
     {
         get
         {
             if (!TwoPlayerMode)
             {
-                return "Right Trigger 1";
+                return "Left Trigger 1";
             }
             else
             {
@@ -168,13 +218,13 @@
         }
     }
 
-    public static string TopPlayerDuck
+    public static string RedPlayerDuck
     {
         get
         {
             if (!TwoPlayerMode)
             {
-                return "Left Bumper 1";
+                return "Right Bumper 1";
             }
             else
             {
@@ -193,13 +243,13 @@
         }
     }
 
-    public static string BottomPlayerDuck
+    public static string BluePlayerDuck
     {
         get
         {
             if (!TwoPlayerMode)
             {
-                return "Right Bumper 1";
+                return "Left Bumper 1";
             }
             else
             {
