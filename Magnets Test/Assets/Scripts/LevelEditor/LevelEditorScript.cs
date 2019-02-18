@@ -125,11 +125,11 @@ public class LevelEditorScript : MonoBehaviour
             }
             if (Input.GetButtonDown("Right Bumper 1"))
             {
-                RotateHeldObject(90);
+                RotateHeldObject(-90);
             }
             if (Input.GetButtonDown("Left Bumper 1"))
             {
-                RotateHeldObject(-90);
+                RotateHeldObject(90);
             }
             if (allowPointerMovementX)
             {
