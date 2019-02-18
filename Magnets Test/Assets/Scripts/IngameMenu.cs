@@ -7,6 +7,12 @@ using UnityEngine.SceneManagement;
 public class IngameMenu : MonoBehaviour
 {
     [SerializeField] private EventSystem eventSystem;
+    private string currentScene;
+
+    private void Awake()
+    {
+        currentScene = SceneManager.GetActiveScene().name;
+    }
 
     private void Update()
     {
@@ -32,5 +38,10 @@ public class IngameMenu : MonoBehaviour
     public void LoadMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(currentScene);
     }
 }
