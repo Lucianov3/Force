@@ -846,7 +846,7 @@ MonoBehaviour:
   maxHeight: 15
   groundValue: 0.1
   verticalSpeed: 100
-  horizontalSpeed: 600
+  horizontalSpeed: 360
   player: 1
   particleEffect: {fileID: 1493800528391872, guid: 0409bf902af3ce645927cd65063ab5b4,
     type: 2}
