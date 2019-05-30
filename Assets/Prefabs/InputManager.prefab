@@ -1,0 +1,370 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5979511091098468557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5979511091098468555}
+  - component: {fileID: 5979511091098468554}
+  - component: {fileID: 5979511091098468553}
+  - component: {fileID: 5979511091098468552}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5979511091098468555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979511091098468557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 459.02847, y: 224.97388, z: -4}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5979511091098468554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979511091098468557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77dff368c1f86344383d2c348023027f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player1: {fileID: 0}
+  Player2: {fileID: 0}
+  Player1Input: {fileID: 0}
+  Player2Input: {fileID: 0}
+  PlayerInputManager: {fileID: 5979511091098468552}
+  menu: {fileID: 0}
+--- !u!114 &5979511091098468553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979511091098468557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 26119243ac1d555488d738cd4b837533,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+DeviceLostEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+DeviceRegainedEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: TopHover
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: bcdfff54-ace4-4336-b896-744403453c9c
+    m_ActionName: Player/Hover
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: TopMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: a38317ec-cd58-43ac-940c-8cd755bbc40d
+    m_ActionName: Player/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: TopDuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 6adcc34a-b8b4-4bea-8a2f-4f386b2be25a
+    m_ActionName: Player/Duck
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: BottomHover
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: ab3fc3e7-2a44-4e4e-96e7-e1c6eb80c59b
+    m_ActionName: SinglePlayer/BottomHover
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: BottomMovement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 39bf870e-dedf-4c26-af4b-046c0f27ca69
+    m_ActionName: SinglePlayer/BottomMovement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: BottomDuck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: e68cad8b-30da-41e6-acc6-2e73b1709749
+    m_ActionName: SinglePlayer/BottomDuck
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Hover
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: c81c086a-cab5-4bc8-ac25-97c5539d8cc7
+    m_ActionName: Player 1/Hover
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Movement
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: bbcae4a7-a651-4a39-a2d4-53e5af9c605c
+    m_ActionName: Player 1/Movement
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Duck
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 12f0ae3d-f5d6-4e2f-a8f7-1f1d845dc6af
+    m_ActionName: Player 1/Duck
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: e528c7fc-bac6-49cf-b362-71357e79e6e0
+    m_ActionName: UI/Accept
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 87d34cfa-c593-4a1d-9f0e-7537c251d4c4
+    m_ActionName: UI/Back
+  - m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 4e304d56-8397-4b94-86b3-b62c3bbb25ca
+    m_ActionName: UI/Move
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: fc788d7d-98ea-41e0-9211-39e0a7708d2b
+    m_ActionName: SinglePlayer/Pause
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 660a9b95-3130-4de5-bfbf-55d8e2d960fe
+    m_ActionName: MulitPlayer/Pause
+  m_AutoSwitchControlScheme: 0
+  m_DefaultControlScheme: Control Scheme
+  m_DefaultActionMap: 8e1e6add-f584-4e71-9aae-249e65c1a9ca
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &5979511091098468552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5979511091098468557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 2
+  m_MaxPlayerCount: 2
+  m_AllowJoining: 1
+  m_JoinPlayersWithMissingDevices: 0
+  m_JoinBehavior: 1
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: OnSecondPlayerJoin
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInputManager+PlayerJoinedEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: OnSecondPlayerLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInputManager+PlayerLeftEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Action
+      m_ExpectedControlLayout: 
+      m_Id: 43aaceb0-49ce-4e5e-b81e-ce8a2d269eb9
+      m_Flags: 0
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings:
+      - m_Name: 
+        m_Id: 34d07a38-ad06-4baa-948c-ea53d8681557
+        m_Path: <Gamepad>/start
+        m_Interactions: 
+        m_Processors: 
+        m_Groups: 
+        m_Action: Action
+        m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 8020943003003004554, guid: 2fdc72a0e1fe74a478885dd9fbd73520,
+    type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenBorderWidth: 0
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
