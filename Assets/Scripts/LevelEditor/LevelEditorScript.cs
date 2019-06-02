@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -41,13 +40,7 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    private bool isPointerUp = true;
-
-    [SerializeField] private float fastPointerMovementDelay = 1f;
-    private bool allowPointerMovementX = true;
-    private float fastPointerMovementTimerX = 0f;
-    private bool allowPointerMovementY = true;
-    private float fastPointerMovementTimerY = 0f;
+    private bool isPointerTopSide = true;
 
     public Level EditLevel = new Level();
     private GameObject[,,] setObjects = new GameObject[2, 64, 19];
@@ -55,6 +48,21 @@ public class LevelEditorScript : MonoBehaviour
     private bool isObjectSelectionMenuOpen = false;
     private bool isChannelSelectionMenuOpen = false;
     private bool isMenuOpen = false;
+
+    public bool AllowInputs
+    {
+        get
+        {
+            if(isObjectSelectionMenuOpen || isChannelSelectionMenuOpen || isMenuOpen)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+    }
 
     [SerializeField] private GameObject objectSelectionMenu;
     [SerializeField] private GameObject channelSelectionMenu;
@@ -69,8 +77,10 @@ public class LevelEditorScript : MonoBehaviour
 
     private void Start()
     {
+        InputManager.Instance.LevelEditorScript = this;
+        InputManager.Instance.Player1Input.SwitchCurrentActionMap("MapEditor");
         SetDropDown();
-        GameManager.isGravityOn = false;
+        GameManager.Instance.isGravityOn = false;
         PointerCoordinateX = 0;
         PointerCoordinateY = 0;
         GameManager.Editor = this;
@@ -83,102 +93,117 @@ public class LevelEditorScript : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.isGravityOn = true;
+        GameManager.Instance.isGravityOn = true;
     }
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (Input.GetButtonDown("Back Button 1"))
+    //    {
+    //        OpenCloseObjectSelectionMenu();
+    //    }
+    //    if (Input.GetButtonDown("Start Button 1"))
+    //    {
+    //        OpenCloseMenu();
+    //    }
+    //    if (Input.GetButtonDown("B Button 1"))
+    //    {
+    //        if (isChannelSelectionMenuOpen || isObjectSelectionMenuOpen || isMenuOpen)
+    //        {
+    //            CloseAllMenus();
+    //        }
+    //        else
+    //        {
+    //            OpenCloseChannelSelectionMenu();
+    //        }
+    //    }
+    //    if (!isMenuOpen && !isObjectSelectionMenuOpen && !isChannelSelectionMenuOpen)
+    //    {
+    //        if (Input.GetButtonDown("A Button 1"))
+    //        {
+    //            PlaceObjectInLevel(currentObjectID, currentHoldObjectRotation, PointerCoordinateX, PointerCoordinateY, isPointerTopSide ? 0 : 1, 0);
+    //        }
+    //        if (Input.GetButtonDown("X Button 1"))
+    //        {
+    //            DeleteObjectInLevel();
+    //        }
+    //        if (Input.GetButtonDown("Y Button 1"))
+    //        {
+    //            SwitchLevel();
+    //        }
+    //        if (Input.GetButtonDown("Right Bumper 1"))
+    //        {
+    //            RotateHeldObject(-90);
+    //        }
+    //        if (Input.GetButtonDown("Left Bumper 1"))
+    //        {
+    //            RotateHeldObject(90);
+    //        }
+    //        if (allowPointerMovementX)
+    //        {
+    //            if (Input.GetAxis("Menu X-Axis") != 0)
+    //            {
+    //                PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
+    //                allowPointerMovementX = false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (Input.GetAxis("Menu X-Axis") == 0)
+    //            {
+    //                allowPointerMovementX = true;
+    //                fastPointerMovementTimerX = 0;
+    //            }
+    //            else if (fastPointerMovementTimerX < fastPointerMovementDelay)
+    //            {
+    //                fastPointerMovementTimerX += Time.deltaTime;
+    //            }
+    //            else
+    //            {
+    //                PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
+    //            }
+    //        }
+    //        if (allowPointerMovementY)
+    //        {
+    //            if (Input.GetAxis("Menu Y-Axis") != 0)
+    //            {
+    //                PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
+    //                allowPointerMovementY = false;
+    //            }
+    //        }
+    //        else
+    //        {
+    //            if (Input.GetAxis("Menu Y-Axis") == 0)
+    //            {
+    //                allowPointerMovementY = true;
+    //                fastPointerMovementTimerY = 0;
+    //            }
+    //            else if (fastPointerMovementTimerY < fastPointerMovementDelay)
+    //            {
+    //                fastPointerMovementTimerY += Time.deltaTime;
+    //            }
+    //            else
+    //            {
+    //                PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
+    //            }
+    //        }
+    //    }
+    //}
+
+    public void MovePointerOnXAxis(float value)
     {
-        if (Input.GetButtonDown("Back Button 1"))
-        {
-            OpenCloseObjectSelectionMenu();
-        }
-        if (Input.GetButtonDown("Start Button 1"))
-        {
-            OpenCloseMenu();
-        }
-        if (Input.GetButtonDown("B Button 1"))
-        {
-            if (isChannelSelectionMenuOpen || isObjectSelectionMenuOpen || isMenuOpen)
-            {
-                CloseAllMenus();
-            }
-            else
-            {
-                OpenCloseChannelSelectionMenu();
-            }
-        }
-        if (!isMenuOpen && !isObjectSelectionMenuOpen && !isChannelSelectionMenuOpen)
-        {
-            if (Input.GetButtonDown("A Button 1"))
-            {
-                SetObjectInLevel(currentObjectID, currentHoldObjectRotation, PointerCoordinateX, PointerCoordinateY, isPointerUp ? 0 : 1, 0);
-            }
-            if (Input.GetButtonDown("X Button 1"))
-            {
-                DeleteObjectInLevel();
-            }
-            if (Input.GetButtonDown("Y Button 1"))
-            {
-                isPointerUp = !isPointerUp;
-                UpdatePointer();
-            }
-            if (Input.GetButtonDown("Right Bumper 1"))
-            {
-                RotateHeldObject(-90);
-            }
-            if (Input.GetButtonDown("Left Bumper 1"))
-            {
-                RotateHeldObject(90);
-            }
-            if (allowPointerMovementX)
-            {
-                if (Input.GetAxis("Menu X-Axis") != 0)
-                {
-                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
-                    allowPointerMovementX = false;
-                }
-            }
-            else
-            {
-                if (Input.GetAxis("Menu X-Axis") == 0)
-                {
-                    allowPointerMovementX = true;
-                    fastPointerMovementTimerX = 0;
-                }
-                else if (fastPointerMovementTimerX < fastPointerMovementDelay)
-                {
-                    fastPointerMovementTimerX += Time.deltaTime;
-                }
-                else
-                {
-                    PointerCoordinateX += Mathf.CeilToInt(Input.GetAxis("Menu X-Axis"));
-                }
-            }
-            if (allowPointerMovementY)
-            {
-                if (Input.GetAxis("Menu Y-Axis") != 0)
-                {
-                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
-                    allowPointerMovementY = false;
-                }
-            }
-            else
-            {
-                if (Input.GetAxis("Menu Y-Axis") == 0)
-                {
-                    allowPointerMovementY = true;
-                    fastPointerMovementTimerY = 0;
-                }
-                else if (fastPointerMovementTimerY < fastPointerMovementDelay)
-                {
-                    fastPointerMovementTimerY += Time.deltaTime;
-                }
-                else
-                {
-                    PointerCoordinateY += Mathf.CeilToInt(Input.GetAxis("Menu Y-Axis"));
-                }
-            }
-        }
+        PointerCoordinateX += Mathf.RoundToInt(value);
+    }
+
+    public void MovePointerOnYAxis(float value)
+    {
+        PointerCoordinateY += Mathf.RoundToInt(value);
+    }
+
+    public void SwitchLevel()
+    {
+        isPointerTopSide = !isPointerTopSide;
+        UpdatePointer();
     }
 
     public void TestEditLevel()
@@ -187,36 +212,189 @@ public class LevelEditorScript : MonoBehaviour
         SceneManager.LoadScene("LevelEditorTestLevel");
     }
 
-    public void SetObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i, int Channel)
+    public void PlaceObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i, int Channel)
     {
+        if(!ObjectPlacementLegitimate(id,xPosition,yPosition,rotation,i))
+        {
+            return;
+        }
+        if (!GameManager.Instance.ObjectForLoadingLevels[id - 1].CanBePlacedMultipleTimes)
+        {
+            if(DoesObjectAlreadyExistInLevel(id,out int oldXPosition,out int oldYPosition,out int oldLevel))
+            {
+                Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
+                setObjects[oldLevel, oldXPosition, oldYPosition] = null;
+                EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+            }
+        }
         EditLevel.Content[i, xPosition, yPosition].SetObjectAndRotation(id, rotation);
+        if (id == 0)
+        {
+            return;
+        }
         if (setObjects[i, xPosition, yPosition] != null)
         {
             Destroy(setObjects[i, xPosition, yPosition]);
             setObjects[i, xPosition, yPosition] = null;
         }
-        if (id == 0)
+        setObjects[i, xPosition, yPosition] = Instantiate(GameManager.Instance.ObjectForLoadingLevels[id - 1].Object, i == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, 0, rotation)));
+    }
+
+    public void PlaceHeldObjectInLevel()
+    {
+        if (!ObjectPlacementLegitimate(currentObjectID, PointerCoordinateX, PointerCoordinateY, currentHoldObjectRotation, isPointerTopSide ? 0 : 1))
         {
             return;
         }
-        setObjects[i, xPosition, yPosition] = Instantiate(GameManager.ObjectForLoadingLevels[id - 1], i == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, 0, rotation)));
+        if (!GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].CanBePlacedMultipleTimes)
+        {
+            if (DoesObjectAlreadyExistInLevel(currentObjectID, out int oldXPosition, out int oldYPosition, out int oldLevel))
+            {
+                Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
+                setObjects[oldLevel, oldXPosition, oldYPosition] = null;
+                EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+            }
+        }
+        EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].SetObjectAndRotation(currentObjectID, currentHoldObjectRotation);
+        if (currentObjectID == 0)
+        {
+            return;
+        }
+        if (setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] != null)
+        {
+            Destroy(setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY]);
+            setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = null;
+        }
+        setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = Instantiate(GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].Object,  isPointerTopSide ? new Vector3(-31.5f + PointerCoordinateX, 1.0f + PointerCoordinateY) : new Vector3(-31.5f + PointerCoordinateX, -19.0f + PointerCoordinateY), Quaternion.Euler(new Vector3(0, 0, currentHoldObjectRotation)));
+    }
+    
+    private bool DoesObjectAlreadyExistInLevel(int id,out int xPostion,out int yPosition,out int level)
+    {
+        level = 0;
+        xPostion = 0;
+        yPosition = 0;
+        for (int i = 0; i < EditLevel.Content.GetLength(0); i++)
+        {
+            for (int j = 0; j < EditLevel.Content.GetLength(1); j++)
+            {
+                for (int k = 0; k < EditLevel.Content.GetLength(2); k++)
+                {
+                    if(EditLevel.Content[i,j,k].Object == id)
+                    {
+                        level= i;
+                        xPostion = j;
+                        yPosition = k;
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
-    private void DeleteObjectInLevel()
+    private bool ObjectPlacementLegitimate(int id,int xPosition,int yPosition,int rotation,int i)
     {
-        EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].SetObjectAndRotation(0, currentHoldObjectRotation);
-        if (setObjects[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY] != null)
+        if(GameManager.Instance.ObjectForLoadingLevels[id - 1].CanOnlyBePlacedOnBottom && i == 0 || GameManager.Instance.ObjectForLoadingLevels[id - 1].CanOnlyBePlacedOnTop && i == 1)
         {
-            Destroy(setObjects[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY]);
-            setObjects[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = null;
+            return false;
+        }
+        switch (i)
+        {
+            case 0:
+                switch (rotation)
+                {
+                    case 0:
+                        if (xPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Width - 1 > MaxXPosition || yPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Height - 1 > MaxYPosition)
+                        {
+                            return false;
+                        }
+                        return true;
+                    case 90:
+                        if (xPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Height + 1 < 0 || yPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Width - 1 > MaxYPosition)
+                        {
+                            return false;
+                        }
+                        return true;
+                    case 180:
+                        if(xPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Width + 1 < 0 || yPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Height + 1 < 0)
+                        {
+                            return false;
+                        }
+                        return true;
+
+                    case 270:
+                        if (xPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Height - 1 > MaxXPosition || yPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Width + 1 < 0)
+                        {
+                            return false;
+                        }
+                        return true;
+                }
+                break;
+
+            case 1:
+                switch (rotation)
+                {
+                    case 0:
+                        if (xPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Width - 1 > MaxXPosition || yPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Height - 1 > MaxYPosition)
+                        {
+                            return false;
+                        }
+                        return true;
+                    case 90:
+                        if (xPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Height + 1 < 0 || yPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Width - 1 > MaxYPosition)
+                        {
+                            return false;
+                        }
+                        return true;
+                    case 180:
+                        if (xPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Width + 1 < 0 || yPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Height + 1 < 0)
+                        {
+                            return false;
+                        }
+                        return true;
+
+                    case 270:
+                        if (xPosition + GameManager.Instance.ObjectForLoadingLevels[id - 1].Height - 1 > MaxXPosition || yPosition - GameManager.Instance.ObjectForLoadingLevels[id - 1].Width + 1 < 0)
+                        {
+                            return false;
+                        }
+                        return true;
+                }
+                break;
+        }
+
+        Debug.Log("ObjectPlacementLegitimate function failed");
+        return false;
+    }
+
+
+    public void DeleteObjectInLevel()
+    {
+        EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].SetObjectAndRotation(0, currentHoldObjectRotation);
+        if (setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] != null)
+        {
+            Destroy(setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY]);
+            setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = null;
         }
     }
 
-    private void RotateHeldObject(int value)
+    public void RotateHeldObject(int value)
     {
         if (pointer.transform.childCount > 1)
         {
+            if (!GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].CanBeRotated)
+            {
+                return;
+            }
             currentHoldObjectRotation = value > 0 ? currentHoldObjectRotation + 90 : currentHoldObjectRotation - 90;
+            if(currentHoldObjectRotation == -90)
+            {
+                currentHoldObjectRotation = 270;
+            }
+            else if(currentHoldObjectRotation == 360)
+            {
+                currentHoldObjectRotation = 0;
+            }
             pointer.transform.GetChild(1).transform.localRotation = Quaternion.Euler(pointer.transform.GetChild(1).transform.localRotation.x, pointer.transform.GetChild(1).transform.localRotation.y, currentHoldObjectRotation);
         }
     }
@@ -224,14 +402,14 @@ public class LevelEditorScript : MonoBehaviour
     private void SetDropDown()
     {
         List<string> objectsName = new List<string>();
-        foreach (GameObject obj in GameManager.ObjectForLoadingLevels)
+        foreach (LevelObject obj in GameManager.Instance.ObjectForLoadingLevels)
         {
-            objectsName.Add(obj.name);
+            objectsName.Add(obj.Name);
         }
         dropDownObjectSelection.AddOptions(objectsName);
     }
 
-    private void OpenCloseObjectSelectionMenu()
+    public void OpenCloseObjectSelectionMenu()
     {
         if (isObjectSelectionMenuOpen)
         {
@@ -249,7 +427,7 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    private void OpenCloseChannelSelectionMenu()
+    public void OpenCloseChannelSelectionMenu()
     {
         if (isChannelSelectionMenuOpen)
         {
@@ -260,7 +438,7 @@ public class LevelEditorScript : MonoBehaviour
         else
         {
             CloseAllMenus();
-            dropDownChannelSelection.value = EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel;
+            dropDownChannelSelection.value = EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel;
             isChannelSelectionMenuOpen = true;
             channelSelectionMenu.SetActive(true);
             eventSystem.SetSelectedGameObject(channelSelectionMenu.transform.GetChild(0).gameObject);
@@ -268,7 +446,7 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    private void OpenCloseMenu()
+    public void OpenCloseMenu()
     {
         if (isMenuOpen)
         {
@@ -303,19 +481,23 @@ public class LevelEditorScript : MonoBehaviour
     public void InstantiateChild(int i)
     {
         currentObjectID = i;
+        if (!GameManager.Instance.ObjectForLoadingLevels[i - 1].CanBeRotated)
+        {
+            currentHoldObjectRotation = 0;
+        }
         if (pointer.transform.childCount > 1)
         {
             Destroy(pointer.transform.GetChild(1).gameObject);
         }
         if (i != 0)
         {
-            Instantiate(GameManager.ObjectForLoadingLevels[i - 1], pointer.transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentHoldObjectRotation));
+            Instantiate(GameManager.Instance.ObjectForLoadingLevels[i - 1].Object, pointer.transform).transform.rotation = Quaternion.Euler(new Vector3(0, 0, currentHoldObjectRotation));
         }
     }
 
     public void SetChannel(int index)
     {
-        EditLevel.Content[isPointerUp ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = index;
+        EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = index;
     }
 
     private void UpdatePointer()
@@ -340,7 +522,7 @@ public class LevelEditorScript : MonoBehaviour
             PointerCoordinateY = 0;
             return;
         }
-        if (isPointerUp)
+        if (isPointerTopSide)
         {
             pointer.transform.position = new Vector3(-32.0f + PointerCoordinateX, 0.5f + PointerCoordinateY);
         }

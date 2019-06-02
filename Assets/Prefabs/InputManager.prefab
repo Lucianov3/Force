@@ -50,7 +50,8 @@ MonoBehaviour:
   Player1Input: {fileID: 0}
   Player2Input: {fileID: 0}
   PlayerInputManager: {fileID: 5979511091098468552}
-  menu: {fileID: 0}
+  IngameMenu: {fileID: 0}
+  LevelEditorScript: {fileID: 0}
 --- !u!114 &5979511091098468553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,6 +284,210 @@ MonoBehaviour:
       Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 660a9b95-3130-4de5-bfbf-55d8e2d960fe
     m_ActionName: MulitPlayer/Pause
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: Menu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: ee5ec0a4-798a-46e3-bbc3-d3669edb1f06
+    m_ActionName: MapEditor/Menu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: SelectObjectMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: a291475b-60a0-4303-aa63-e0391a8e3d68
+    m_ActionName: MapEditor/SelectObjectMenu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: RotateRight
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 8f051b86-7936-4769-94f0-68cbdaa405f9
+    m_ActionName: MapEditor/RotateRight
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: RotateLeft
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: b5c10d2d-ec7f-402a-bd2e-d5956a6a4fc5
+    m_ActionName: MapEditor/RotateLeft
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: PlaceObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 95540bcd-35ce-4f93-ba65-4ed6fcfffc84
+    m_ActionName: MapEditor/PlaceObject
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: DeleteObject
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 9b2d157f-d29f-468c-9266-9302927eed57
+    m_ActionName: MapEditor/DeleteObject
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: SwitchLevel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 410a9bc6-eaa4-40f2-b02c-caa7e7473a09
+    m_ActionName: MapEditor/SwitchLevel
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: SetChannelMenu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 4bf13371-6fe7-4eb7-8d81-27465dbba1d7
+    m_ActionName: MapEditor/SetChannelMenu
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: PointerXPress
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: d4002676-d307-47dc-8d0d-9ddd89f45b11
+    m_ActionName: MapEditor/PointerX
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: PointerYPress
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 02f6d1e5-38bd-46c2-b7d0-950ffb00b2f7
+    m_ActionName: MapEditor/PointerY
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: PointerXHold
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: e0512950-0907-4d87-9e93-4c208ca8a09b
+    m_ActionName: MapEditor/PointerXHold
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5979511091098468554}
+        m_MethodName: PointerYHold
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.Plugins.PlayerInput.PlayerInput+ActionEvent,
+      Unity.InputSystem, Version=0.2.10.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 71185d30-2e3d-4a8f-8cdf-ef6665a792c6
+    m_ActionName: MapEditor/PointerYHold
   m_AutoSwitchControlScheme: 0
   m_DefaultControlScheme: Control Scheme
   m_DefaultActionMap: 8e1e6add-f584-4e71-9aae-249e65c1a9ca

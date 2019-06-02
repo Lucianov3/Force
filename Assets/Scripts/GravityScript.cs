@@ -37,11 +37,11 @@ public class GravityScript : MonoBehaviour
     {
         if (!IsObjectHeld)
         {
-            if (GameManager.isGravityOn && rb.isKinematic)
+            if (GameManager.Instance.isGravityOn && rb.isKinematic)
             {
                 rb.isKinematic = false;
             }
-            else if (!GameManager.isGravityOn && !rb.isKinematic)
+            else if (!GameManager.Instance.isGravityOn && !rb.isKinematic)
             {
                 rb.isKinematic = true;
             }

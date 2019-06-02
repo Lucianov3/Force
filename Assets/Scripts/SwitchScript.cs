@@ -5,7 +5,6 @@ using UnityEngine;
 public class SwitchScript : MonoBehaviour
 {
     public int Channel = 0;
-    private bool activated = false;
     private int numberOfObjectOnSwitch = 0;
 
     private void Start()
@@ -13,15 +12,6 @@ public class SwitchScript : MonoBehaviour
         TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]++;
         TransmitterEventManager.IsChannelInMulitMode[Channel] = true;
     }
-
-    //private void OnDisable()
-    //{
-    //    TransmitterEventManager.NumberOfTransmitterPerChannel[Channel]--;
-    //    if (activated)
-    //    {
-    //        TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
@@ -49,7 +39,6 @@ public class SwitchScript : MonoBehaviour
 
     private void ActivateSwitch()
     {
-        activated = true;
         TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]++;
         if (TransmitterEventManager.OnTransmitterActivation != null)
         {
@@ -60,7 +49,6 @@ public class SwitchScript : MonoBehaviour
 
     private void DeactivateSwitch()
     {
-        activated = false;
         TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[Channel]--;
         if (TransmitterEventManager.OnTransmitterDeactivation != null)
         {

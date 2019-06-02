@@ -1,8 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Plugins.PlayerInput;
-using UnityEngine.InputSystem.Plugins.UI;
-using UnityEngine.SceneManagement;
 using static UnityEngine.InputSystem.InputAction;
 
 public class InputManager : MonoBehaviour
@@ -17,7 +14,9 @@ public class InputManager : MonoBehaviour
 
     public PlayerInputManager PlayerInputManager;
 
-    public IngameMenu menu;
+    public IngameMenu IngameMenu;
+
+    public LevelEditorScript LevelEditorScript;
 
 
     private bool isMultiplayerMode = false;
@@ -57,7 +56,9 @@ public class InputManager : MonoBehaviour
             Player2Input = null; 
         }
     }
-    
+
+
+    #region SinglePlayerEvents
     public void TopHover(CallbackContext callbackContext)
     {
         if(Player1 != null)
@@ -105,18 +106,20 @@ public class InputManager : MonoBehaviour
             Player2.Duck = callbackContext.ReadValue<float>() == 0 ? false : true;
         }
     }
+    #endregion
 
     public void Pause(CallbackContext callbackContext)
     {
-        if(menu != null)
+        if(IngameMenu != null)
         {
             if(callbackContext.ReadValue<float>() == 1)
             {
-                menu.OpenCloseMenu();
+                IngameMenu.OpenCloseMenu();
             }
         }
     }
 
+    #region MultiPlayerEvents
     public void Hover(CallbackContext callbackContext)
     {
         if (Player2 != null)
@@ -140,4 +143,100 @@ public class InputManager : MonoBehaviour
             Player2.Duck = callbackContext.ReadValue<float>() == 0 ? false : true;
         }
     }
+
+    #endregion
+
+    #region LevelEditorEvents
+
+    public void Menu(CallbackContext callbackContext)
+    {
+        if(LevelEditorScript != null)
+        {
+            LevelEditorScript.OpenCloseMenu();
+        }
+    }
+    public void SelectObjectMenu(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null)
+        {
+            LevelEditorScript.OpenCloseObjectSelectionMenu();
+        }
+    }
+    public void SetChannelMenu(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null)
+        {
+            LevelEditorScript.OpenCloseChannelSelectionMenu();
+        }
+    }
+    public void RotateRight(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.RotateHeldObject(-90);
+        }
+    }
+    public void RotateLeft(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.RotateHeldObject(90);
+        }
+
+    }
+    public void PlaceObject(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.PlaceHeldObjectInLevel();
+        }
+
+    }
+    public void DeleteObject(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.DeleteObjectInLevel();
+        }
+    }
+    public void SwitchLevel(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.SwitchLevel();
+        }
+    }
+    public void PointerXPress(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.MovePointerOnXAxis(callbackContext.ReadValue<float>());
+        }
+    }
+    public void PointerXHold(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && callbackContext.performed && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.MovePointerOnXAxis(callbackContext.ReadValue<float>());
+        }
+    }
+    public void PointerYPress(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.MovePointerOnYAxis(callbackContext.ReadValue<float>());
+        }
+
+    }
+    public void PointerYHold(CallbackContext callbackContext)
+    {
+        if (LevelEditorScript != null && callbackContext.performed && LevelEditorScript.AllowInputs)
+        {
+            LevelEditorScript.MovePointerOnYAxis(callbackContext.ReadValue<float>());
+        }
+
+    }
+
+    #endregion
+
 }

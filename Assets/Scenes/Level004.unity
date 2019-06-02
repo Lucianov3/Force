@@ -725,6 +725,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -24.5
@@ -826,6 +830,10 @@ PrefabInstance:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_Name
       value: Laser (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1201,6 +1209,10 @@ PrefabInstance:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_Name
       value: Laser (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2254,6 +2266,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -28.5
@@ -2885,11 +2901,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -3386,6 +3402,10 @@ PrefabInstance:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_Name
       value: Laser (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4327,6 +4347,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -23.5
@@ -4824,6 +4848,10 @@ PrefabInstance:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_Name
       value: Laser (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5577,11 +5605,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -5921,6 +5949,10 @@ PrefabInstance:
     - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_Name
       value: Laser (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6520,6 +6552,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Laser (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -25.5
@@ -6769,6 +6805,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 899437893}
     m_Modifications:
+    - target: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4716567577178668, guid: c7625e7759b255945be13f717b50043e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -31.5

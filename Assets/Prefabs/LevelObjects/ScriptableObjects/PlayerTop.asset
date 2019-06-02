@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40356b1b79e4995459e0a609dac4ce3d, type: 3}
+  m_Name: PlayerTop
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1843264281408640, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 3}
+  Name: Player Top
+  Id: 1
+  Width: 1
+  Height: 2
+  CanBeRotated: 0
+  CanBePlacedMultipleTimes: 0
+  HasChannel: 0
+  CanOnlyBePlacedOnTop: 1
+  CanOnlyBePlacedOnBottom: 0

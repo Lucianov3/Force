@@ -15,7 +15,7 @@ public class TestLevel : MonoBehaviour
             TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[i] = 0;
         }
         GameManager.LoadLevel(TestLvl);
-        GameManager.isGravityOn = true;
+        GameManager.Instance.isGravityOn = true;
     }
 
     private void Update()
@@ -28,6 +28,6 @@ public class TestLevel : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.isGravityOn = false;
+        GameManager.Instance.isGravityOn = false;
     }
 }

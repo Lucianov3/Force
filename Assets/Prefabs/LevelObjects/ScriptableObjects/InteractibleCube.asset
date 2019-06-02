@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40356b1b79e4995459e0a609dac4ce3d, type: 3}
+  m_Name: InteractibleCube
+  m_EditorClassIdentifier: 
+  Object: {fileID: 1748580908647742, guid: 6e62bc735086d0b429828cec0fcf5f46, type: 3}
+  Name: Interactible Cube
+  Id: 10
+  Width: 2
+  Height: 2
+  CanBeRotated: 0
+  CanBePlacedMultipleTimes: 1
+  HasChannel: 0
+  CanOnlyBePlacedOnTop: 0
+  CanOnlyBePlacedOnBottom: 0

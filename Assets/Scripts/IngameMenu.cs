@@ -11,7 +11,7 @@ public class IngameMenu : MonoBehaviour
     private void Start()
     {
         eventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
-        InputManager.Instance.menu = this;
+        InputManager.Instance.IngameMenu = this;
     }
 
     public void OpenCloseMenu()

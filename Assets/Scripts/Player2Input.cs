@@ -10,11 +10,11 @@ public class Player2Input : MonoBehaviour
 
     public void Pause(CallbackContext callbackContext)
     {
-        if (InputManager.Instance.menu != null)
+        if (InputManager.Instance.IngameMenu != null)
         {
             if (callbackContext.ReadValue<float>() == 1)
             {
-                InputManager.Instance.menu.OpenCloseMenu();
+                InputManager.Instance.IngameMenu.OpenCloseMenu();
             }
         }
     }

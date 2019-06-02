@@ -1,23 +1,49 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static List<GameObject> ObjectForLoadingLevels;
+    public static GameManager Instance;
 
-    [SerializeField] private List<GameObject> objectForLoadingLevels;
+    [ContextMenuItem("Sort","SortObjects",order = 0)]
+    public List<LevelObject> ObjectForLoadingLevels;
 
     public static LevelEditorScript Editor;
 
-    public static bool isGravityOn = true;
+    [HideInInspector]
+    public bool isGravityOn = true;
 
     private void Start()
     {
-        if (ObjectForLoadingLevels == null)
+        if (Instance == null)
         {
-            ObjectForLoadingLevels = objectForLoadingLevels;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            SortObjects();
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    
+    private void SortObjects()
+    {
+        ObjectForLoadingLevels.Sort((x, y) => x.Id.CompareTo(y.Id));
+    }
+
+    public void CreateNewObject()
+    {
+        LevelObject asset = LevelObject.CreateInstance<LevelObject>();
+        asset.Id = ObjectForLoadingLevels.Count+1;
+        AssetDatabase.CreateAsset(asset,"Assets/Prefabs/LevelObjects/ScriptableObjects/NewObject.asset");
+
+        AssetDatabase.SaveAssets();
+        ObjectForLoadingLevels.Add(asset);
+        AssetDatabase.Refresh();
+        EditorUtility.FocusProjectWindow();
+        Selection.activeObject = asset;
     }
 
     public static void LoadLevel(Level level)
@@ -30,7 +56,7 @@ public class GameManager : MonoBehaviour
                 {
                     if (level.Content[i, j, k].Object != 0)
                     {
-                        GameObject obj = Instantiate(GameManager.ObjectForLoadingLevels[level.Content[i, j, k].Object - 1], i == 0 ? new Vector3(-31.5f + j, 1.0f + k) : new Vector3(-31.5f + j, -19.0f + k), Quaternion.Euler(new Vector3(0, 0, Editor.EditLevel.Content[i, j, k].Rotation)));
+                        GameObject obj = Instantiate(GameManager.Instance.ObjectForLoadingLevels[level.Content[i, j, k].Object - 1].Object, i == 0 ? new Vector3(-31.5f + j, 1.0f + k) : new Vector3(-31.5f + j, -19.0f + k), Quaternion.Euler(new Vector3(0, 0, Editor.EditLevel.Content[i, j, k].Rotation)));
                         if (obj.GetComponent<GateScript>() != null)
                         {
                             obj.GetComponent<GateScript>().Channel = level.Content[i, j, k].Channel;
@@ -69,7 +95,7 @@ public class GameManager : MonoBehaviour
             {
                 for (int k = 0; k < Editor.EditLevel.Content.GetLength(2); k++)
                 {
-                    Editor.SetObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i, Editor.EditLevel.Content[i, j, k].Channel);
+                    Editor.PlaceObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i, Editor.EditLevel.Content[i, j, k].Channel);
                 }
             }
         }
