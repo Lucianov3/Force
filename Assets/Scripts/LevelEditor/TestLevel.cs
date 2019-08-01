@@ -15,19 +15,16 @@ public class TestLevel : MonoBehaviour
             TransmitterEventManager.NumberOfActivatedTransmitterPerChannel[i] = 0;
         }
         GameManager.LoadLevel(TestLvl);
-        GameManager.Instance.isGravityOn = true;
-    }
-
-    private void Update()
-    {
-        if (Input.GetButton("Start Button 1"))
+        GameManager.Instance.IsGravityOn = true;
+        InputManager.Instance.Player1Input.SwitchCurrentActionMap(InputManager.Instance.PlayerInputManager.playerCount == 1 ? "SinglePlayer":"MultiPlayer");
+        if (InputManager.Instance.PlayerInputManager.playerCount == 2)
         {
-            SceneManager.LoadScene("LevelEditor");
+            InputManager.Instance.Player2Input.SwitchCurrentActionMap("MultiPlayer");
         }
     }
 
     private void OnDisable()
     {
-        GameManager.Instance.isGravityOn = false;
+        GameManager.Instance.IsGravityOn = false;
     }
 }

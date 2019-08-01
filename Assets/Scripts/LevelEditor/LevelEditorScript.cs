@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System;
 
 public class LevelEditorScript : MonoBehaviour
 {
@@ -46,14 +47,13 @@ public class LevelEditorScript : MonoBehaviour
     private GameObject[,,] setObjects = new GameObject[2, 64, 19];
 
     private bool isObjectSelectionMenuOpen = false;
-    private bool isChannelSelectionMenuOpen = false;
     private bool isMenuOpen = false;
 
     public bool AllowInputs
     {
         get
         {
-            if(isObjectSelectionMenuOpen || isChannelSelectionMenuOpen || isMenuOpen)
+            if(isObjectSelectionMenuOpen || isMenuOpen)
             {
                 return false;
             }
@@ -65,7 +65,6 @@ public class LevelEditorScript : MonoBehaviour
     }
 
     [SerializeField] private GameObject objectSelectionMenu;
-    [SerializeField] private GameObject channelSelectionMenu;
     [SerializeField] private Dropdown dropDownObjectSelection;
     [SerializeField] private Dropdown dropDownChannelSelection;
     [SerializeField] private GameObject menu;
@@ -75,12 +74,20 @@ public class LevelEditorScript : MonoBehaviour
 
     [SerializeField] private EventSystem eventSystem;
 
+    public SelectObjectMenuScript SelectObjectMenu;
+
     private void Start()
     {
         InputManager.Instance.LevelEditorScript = this;
-        InputManager.Instance.Player1Input.SwitchCurrentActionMap("MapEditor");
-        SetDropDown();
-        GameManager.Instance.isGravityOn = false;
+        if(InputManager.Instance.Player1Input != null)
+        {
+            InputManager.Instance.Player1Input.SwitchCurrentActionMap("MapEditor");
+        }
+        else if(InputManager.Instance.Player2Input != null)
+        {
+            InputManager.Instance.Player2Input.SwitchCurrentActionMap("MapEditor");
+        }
+        GameManager.Instance.IsGravityOn = false;
         PointerCoordinateX = 0;
         PointerCoordinateY = 0;
         GameManager.Editor = this;
@@ -93,7 +100,7 @@ public class LevelEditorScript : MonoBehaviour
 
     private void OnDisable()
     {
-        GameManager.Instance.isGravityOn = true;
+        GameManager.Instance.IsGravityOn = true;
     }
 
     //private void Update()
@@ -212,66 +219,217 @@ public class LevelEditorScript : MonoBehaviour
         SceneManager.LoadScene("LevelEditorTestLevel");
     }
 
-    public void PlaceObjectInLevel(int id, int rotation, int xPosition, int yPosition, int i, int Channel)
+    public void PlaceObjectInLevel(int id, int rotation, int xPosition, int yPosition, int level, int channel)
     {
-        if(!ObjectPlacementLegitimate(id,xPosition,yPosition,rotation,i))
+        if(id != 0)
         {
-            return;
-        }
-        if (!GameManager.Instance.ObjectForLoadingLevels[id - 1].CanBePlacedMultipleTimes)
-        {
-            if(DoesObjectAlreadyExistInLevel(id,out int oldXPosition,out int oldYPosition,out int oldLevel))
+            if(!ObjectPlacementLegitimate(id,xPosition,yPosition,rotation,level))
             {
-                Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
-                setObjects[oldLevel, oldXPosition, oldYPosition] = null;
-                EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+                return;
+            }
+            if (!GameManager.Instance.ObjectForLoadingLevels[id - 1].CanBePlacedMultipleTimes)
+            {
+                if(DoesObjectAlreadyExistInLevel(id,out int oldXPosition,out int oldYPosition,out int oldLevel))
+                {
+                    Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
+                    setObjects[oldLevel, oldXPosition, oldYPosition] = null;
+                    EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+                }
+            }
+            while(CheckIfObjectInTheWay(id, rotation, xPosition, yPosition, level, out int deleteXPosition, out int deleteYPosition))
+            {
+                Destroy(setObjects[level, deleteXPosition, deleteYPosition]);
+                setObjects[level, deleteXPosition, deleteYPosition] = null;
+                EditLevel.Content[level, deleteXPosition, deleteYPosition].SetObjectAndRotation(0, 0);
             }
         }
-        EditLevel.Content[i, xPosition, yPosition].SetObjectAndRotation(id, rotation);
+        EditLevel.Content[level, xPosition, yPosition].SetObjectAndRotation(id, rotation);
+        if (setObjects[level, xPosition, yPosition] != null)
+        {
+            Destroy(setObjects[level, xPosition, yPosition]);
+            setObjects[level, xPosition, yPosition] = null;
+        }
         if (id == 0)
         {
             return;
         }
-        if (setObjects[i, xPosition, yPosition] != null)
+        setObjects[level, xPosition, yPosition] = Instantiate(GameManager.Instance.ObjectForLoadingLevels[id - 1].Object, level == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, 0, rotation)));
+        if (GameManager.Instance.ObjectForLoadingLevels[id - 1].HasChannel)
         {
-            Destroy(setObjects[i, xPosition, yPosition]);
-            setObjects[i, xPosition, yPosition] = null;
+            if(setObjects[level, xPosition, yPosition].transform.childCount == 0)
+            {
+                setObjects[level, xPosition, yPosition].GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[channel]);
+            }
+            else
+            {
+                setObjects[level, xPosition, yPosition].transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[channel]);
+
+            }
         }
-        setObjects[i, xPosition, yPosition] = Instantiate(GameManager.Instance.ObjectForLoadingLevels[id - 1].Object, i == 0 ? new Vector3(-31.5f + xPosition, 1.0f + yPosition) : new Vector3(-31.5f + xPosition, -19.0f + yPosition), Quaternion.Euler(new Vector3(0, 0, rotation)));
     }
 
     public void PlaceHeldObjectInLevel()
     {
-        if (!ObjectPlacementLegitimate(currentObjectID, PointerCoordinateX, PointerCoordinateY, currentHoldObjectRotation, isPointerTopSide ? 0 : 1))
+        if(currentObjectID != 0)
         {
-            return;
-        }
-        if (!GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].CanBePlacedMultipleTimes)
-        {
-            if (DoesObjectAlreadyExistInLevel(currentObjectID, out int oldXPosition, out int oldYPosition, out int oldLevel))
+            if (!ObjectPlacementLegitimate(currentObjectID, PointerCoordinateX, PointerCoordinateY, currentHoldObjectRotation, isPointerTopSide ? 0 : 1))
             {
-                Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
-                setObjects[oldLevel, oldXPosition, oldYPosition] = null;
-                EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+                return;
+            }
+            if (!GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].CanBePlacedMultipleTimes)
+            {
+                if (DoesObjectAlreadyExistInLevel(currentObjectID, out int oldXPosition, out int oldYPosition, out int oldLevel))
+                {
+                    Destroy(setObjects[oldLevel, oldXPosition, oldYPosition]);
+                    setObjects[oldLevel, oldXPosition, oldYPosition] = null;
+                    EditLevel.Content[oldLevel, oldXPosition, oldYPosition].SetObjectAndRotation(0, 0);
+                }
+            }
+            while(CheckIfObjectInTheWay(currentObjectID, currentHoldObjectRotation, PointerCoordinateX, PointerCoordinateY, isPointerTopSide ? 0 : 1,out int deleteXPosition,out int deleteYPosition))
+            {
+                Destroy(setObjects[isPointerTopSide ? 0 : 1, deleteXPosition, deleteYPosition]);
+                setObjects[isPointerTopSide ? 0 : 1, deleteXPosition, deleteYPosition] = null;
+                EditLevel.Content[isPointerTopSide ? 0 : 1, deleteXPosition, deleteYPosition].SetObjectAndRotation(0, 0);
             }
         }
         EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].SetObjectAndRotation(currentObjectID, currentHoldObjectRotation);
-        if (currentObjectID == 0)
-        {
-            return;
-        }
         if (setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] != null)
         {
             Destroy(setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY]);
             setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = null;
         }
+        if (currentObjectID == 0)
+        {
+            return;
+        }
         setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY] = Instantiate(GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].Object,  isPointerTopSide ? new Vector3(-31.5f + PointerCoordinateX, 1.0f + PointerCoordinateY) : new Vector3(-31.5f + PointerCoordinateX, -19.0f + PointerCoordinateY), Quaternion.Euler(new Vector3(0, 0, currentHoldObjectRotation)));
+        if (GameManager.Instance.ObjectForLoadingLevels[currentObjectID - 1].HasChannel)
+        {
+            if (setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].transform.childCount == 0)
+            {
+                setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel]);
+            }
+            else
+            {
+                setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel]);
+
+            }
+        }
+    }
+
+    private bool CheckIfObjectInTheWay(int id, int rotation, int xPosition, int yPosition, int level, out int oldXPosition, out int oldYPosition)
+    {
+        oldXPosition = 0;
+        oldYPosition = 0;
+        List<Vector3> heldObjectOccupancy = new List<Vector3>();
+        switch (rotation)
+        {
+            case 0:
+                for (int i = 1; i <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Width; i++)
+                {
+                    for (int j = 1; j <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Height; j++)
+                    {
+                        heldObjectOccupancy.Add(new Vector3(level, xPosition + i - 1, yPosition + j - 1));
+                    }
+                }
+                break;
+            case 90:
+                for (int i = 1; i <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Width; i++)
+                {
+                    for (int j = 1; j <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Height; j++)
+                    {
+                        heldObjectOccupancy.Add(new Vector3(level, xPosition - j + 1, yPosition + i - 1));
+                    }
+                }
+                break;
+            case 180:
+                for (int i = 1; i <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Width; i++)
+                {
+                    for (int j = 1; j <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Height; j++)
+                    {
+                        heldObjectOccupancy.Add(new Vector3(level, xPosition - i + 1, yPosition - j + 1));
+                        
+                    }
+                }
+                break;
+            case 270:
+                for (int i = 1; i <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Width; i++)
+                {
+                    for (int j = 1; j <= GameManager.Instance.ObjectForLoadingLevels[id - 1].Height; j++)
+                    {
+                         heldObjectOccupancy.Add(new Vector3(level, xPosition + j - 1, yPosition - i + 1));
+                    }
+                }
+                break;
+        }
+
+        List<Vector3> ObjectOccupany = new List<Vector3>();
+        
+        for (int j = 0; j < EditLevel.Content.GetLength(1); j++)
+        {
+            for (int k = 0; k < EditLevel.Content.GetLength(2); k++)
+            {
+                if (EditLevel.Content[level, j, k].Object != 0)
+                {
+                    oldXPosition = j;
+                    oldYPosition = k;
+                    ObjectOccupany = new List<Vector3>();
+                    switch (rotation)
+                    {
+                        case 0:
+                            for (int x = 1; x <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Width; x++)
+                            {
+                                for (int y = 1; y <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Height; y++)
+                                {
+                                     ObjectOccupany.Add(new Vector3(level, j + x - 1, k + y - 1));
+                                }
+                            }
+                            break;
+                        case 90:
+                            for (int x = 1; x <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Width; x++)
+                            {
+                                for (int y = 1; y <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Height; y++)
+                                {
+                                     ObjectOccupany.Add(new Vector3(level, j - y + 1, k + x - 1));
+                                }
+                            }
+                            break;
+                        case 180:
+                            for (int x = 1; x <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Width; x++)
+                            {
+                                for (int y = 1; y <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Height; y++)
+                                {
+                                    ObjectOccupany.Add(new Vector3(level, j - x + 1, k - y + 1));
+                                }
+                            }
+                            break;
+                        case 270:
+                            for (int x = 1; x <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Width; x++)
+                            {
+                                for (int y = 1; y <= GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[level, j, k].Object - 1].Height; y++)
+                                {
+                                     ObjectOccupany.Add(new Vector3(level, j + y - 1, k - x + 1));
+                                }
+                            }
+                            break;
+                    }
+                    foreach (Vector3 vector3 in heldObjectOccupancy)
+                    {
+                        if (ObjectOccupany.Contains(vector3))
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
     
-    private bool DoesObjectAlreadyExistInLevel(int id,out int xPostion,out int yPosition,out int level)
+    private bool DoesObjectAlreadyExistInLevel(int id,out int xPosition,out int yPosition,out int level)
     {
         level = 0;
-        xPostion = 0;
+        xPosition = 0;
         yPosition = 0;
         for (int i = 0; i < EditLevel.Content.GetLength(0); i++)
         {
@@ -282,7 +440,7 @@ public class LevelEditorScript : MonoBehaviour
                     if(EditLevel.Content[i,j,k].Object == id)
                     {
                         level= i;
-                        xPostion = j;
+                        xPosition = j;
                         yPosition = k;
                         return true;
                     }
@@ -294,6 +452,10 @@ public class LevelEditorScript : MonoBehaviour
 
     private bool ObjectPlacementLegitimate(int id,int xPosition,int yPosition,int rotation,int i)
     {
+        if(id == 0)
+        {
+            return true;
+        }
         if(GameManager.Instance.ObjectForLoadingLevels[id - 1].CanOnlyBePlacedOnBottom && i == 0 || GameManager.Instance.ObjectForLoadingLevels[id - 1].CanOnlyBePlacedOnTop && i == 1)
         {
             return false;
@@ -366,8 +528,7 @@ public class LevelEditorScript : MonoBehaviour
         Debug.Log("ObjectPlacementLegitimate function failed");
         return false;
     }
-
-
+    
     public void DeleteObjectInLevel()
     {
         EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].SetObjectAndRotation(0, currentHoldObjectRotation);
@@ -399,53 +560,6 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    private void SetDropDown()
-    {
-        List<string> objectsName = new List<string>();
-        foreach (LevelObject obj in GameManager.Instance.ObjectForLoadingLevels)
-        {
-            objectsName.Add(obj.Name);
-        }
-        dropDownObjectSelection.AddOptions(objectsName);
-    }
-
-    public void OpenCloseObjectSelectionMenu()
-    {
-        if (isObjectSelectionMenuOpen)
-        {
-            dropDownObjectSelection.Hide();
-            isObjectSelectionMenuOpen = false;
-            objectSelectionMenu.SetActive(false);
-        }
-        else
-        {
-            CloseAllMenus();
-            isObjectSelectionMenuOpen = true;
-            objectSelectionMenu.SetActive(true);
-            eventSystem.SetSelectedGameObject(objectSelectionMenu.transform.GetChild(0).gameObject);
-            dropDownObjectSelection.Hide();
-        }
-    }
-
-    public void OpenCloseChannelSelectionMenu()
-    {
-        if (isChannelSelectionMenuOpen)
-        {
-            dropDownChannelSelection.Hide();
-            isChannelSelectionMenuOpen = false;
-            channelSelectionMenu.SetActive(false);
-        }
-        else
-        {
-            CloseAllMenus();
-            dropDownChannelSelection.value = EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel;
-            isChannelSelectionMenuOpen = true;
-            channelSelectionMenu.SetActive(true);
-            eventSystem.SetSelectedGameObject(channelSelectionMenu.transform.GetChild(0).gameObject);
-            dropDownChannelSelection.Hide();
-        }
-    }
-
     public void OpenCloseMenu()
     {
         if (isMenuOpen)
@@ -468,14 +582,6 @@ public class LevelEditorScript : MonoBehaviour
         {
             OpenCloseMenu();
         }
-        if (isObjectSelectionMenuOpen)
-        {
-            OpenCloseObjectSelectionMenu();
-        }
-        if (isChannelSelectionMenuOpen)
-        {
-            OpenCloseChannelSelectionMenu();
-        }
     }
 
     public void InstantiateChild(int i)
@@ -484,6 +590,10 @@ public class LevelEditorScript : MonoBehaviour
         if (!GameManager.Instance.ObjectForLoadingLevels[i - 1].CanBeRotated)
         {
             currentHoldObjectRotation = 0;
+        }
+        if(GameManager.Instance.ObjectForLoadingLevels[i - 1].IsUpsideDown)
+        {
+            currentHoldObjectRotation = 180;
         }
         if (pointer.transform.childCount > 1)
         {
@@ -495,9 +605,33 @@ public class LevelEditorScript : MonoBehaviour
         }
     }
 
-    public void SetChannel(int index)
+    public void SetChannel(int value)
     {
-        EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = index;
+        if(EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Object == 0)
+        {
+            return;
+        }
+        if(GameManager.Instance.ObjectForLoadingLevels[EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Object-1].HasChannel)
+        {
+            EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel += value;
+            if(EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel == 10)
+            {
+                EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = 0;
+            }
+            else if(EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel == -1)
+            {
+                EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel = 9;
+            }
+            if (setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].transform.childCount == 0)
+            {
+                setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel]);
+            }
+            else
+            {
+                setObjects[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[EditLevel.Content[isPointerTopSide ? 0 : 1, PointerCoordinateX, PointerCoordinateY].Channel]);
+
+            }
+        }
     }
 
     private void UpdatePointer()

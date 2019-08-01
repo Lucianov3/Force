@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Switch
   m_EditorClassIdentifier: 
   Object: {fileID: 1940065579398484, guid: b23831997f323fb458ad7beb648801ed, type: 3}
+  Image: {fileID: 21300000, guid: efaa0bf59b17ebf4981d4a203a0d5e8a, type: 3}
   Name: Switch
   Id: 11
-  Width: 1
+  Width: 2
   Height: 1
   CanBeRotated: 1
   CanBePlacedMultipleTimes: 1
   HasChannel: 1
   CanOnlyBePlacedOnTop: 0
   CanOnlyBePlacedOnBottom: 0
+  IsUpsideDown: 0

@@ -12,7 +12,15 @@ public class GameManagerEditor : Editor
         GameManager myTarget = (GameManager)target;
         if(GUILayout.Button("Create New Object"))
         {
-            myTarget.CreateNewObject();
+            LevelObject asset = LevelObject.CreateInstance<LevelObject>();
+            asset.Id = myTarget.ObjectForLoadingLevels.Count + 1;
+            AssetDatabase.CreateAsset(asset, "Assets/Prefabs/LevelObjects/ScriptableObjects/NewObject.asset");
+
+            AssetDatabase.SaveAssets();
+            myTarget.ObjectForLoadingLevels.Add(asset);
+            AssetDatabase.Refresh();
+            EditorUtility.FocusProjectWindow();
+            Selection.activeObject = asset;
         }
     }
 }

@@ -36,6 +36,18 @@ public class LevelEditorButtonScript : MonoBehaviour
         GameManager.LoadLevelIntoMapEditor();
     }
 
+    public void DeleteLevel()
+    {
+        GameManager.Editor.EditLevel.DeleteLevel(Application.dataPath + "/Levels/Level" + LevelNumber + ".txt");
+    }
+
+    public void RefreshLevel()
+    {
+        GameManager.Editor.EditLevel = new Level();
+        GameManager.LoadLevelIntoMapEditor();
+        GameManager.Instance.PrintMessageInCanvas("Level refreshed");
+    }
+
     public void SaveLevel()
     {
         GameManager.Editor.EditLevel.SaveLevelToJson(Application.dataPath + "/Levels/Level" + LevelNumber + ".txt");

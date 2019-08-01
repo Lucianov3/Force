@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Laser
   m_EditorClassIdentifier: 
   Object: {fileID: 1422545221695848, guid: c7625e7759b255945be13f717b50043e, type: 3}
+  Image: {fileID: 21300000, guid: 926dc9a2265a36c429491462b2e55106, type: 3}
   Name: Laser
   Id: 6
   Width: 1

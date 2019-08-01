@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 23594167289029256}
   - component: {fileID: 65336947568226106}
   - component: {fileID: 114845143163149088}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Blue Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -28,8 +28,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714990878626144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 1.5, z: 3.5}
-  m_LocalScale: {x: 2, y: 4, z: 1}
+  m_LocalPosition: {x: 0.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 4, z: 0.01}
   m_Children: []
   m_Father: {fileID: 4353891575445848}
   m_RootOrder: 0
@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: -3.5}
+  m_Size: {x: 1, y: 1, z: 100}
+  m_Center: {x: 0, y: 0, z: -150}
 --- !u!114 &114845143163149088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353891575445848}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: DoorBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

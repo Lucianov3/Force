@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LaserEdge
   m_EditorClassIdentifier: 
   Object: {fileID: 1358454039141484, guid: 1b2cf5d6c13a4dc4399a5bbce73820d1, type: 3}
+  Image: {fileID: 21300000, guid: c978f831cf3afee49b539568897eee0b, type: 3}
   Name: Laser Edge
   Id: 7
   Width: 1

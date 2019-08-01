@@ -1,21 +1,38 @@
 ﻿using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [ColorUsage(true,true)]
+    public List<Color> ChannelColors;
 
     [ContextMenuItem("Sort","SortObjects",order = 0)]
     public List<LevelObject> ObjectForLoadingLevels;
 
     public static LevelEditorScript Editor;
 
+
     [HideInInspector]
-    public bool isGravityOn = true;
+    public bool IsGravityOn = true;
+
+    public bool DebugMode = false;
+
+    [Header("Message System")]
+    public GameObject MessageObject;
+    public float TimeMessageIsShown;
+    public List<GameObject> Messages;
+
+    public Level LevelToLoad;
 
     private void Start()
     {
+        if (Application.isEditor||Application.installMode == ApplicationInstallMode.DeveloperBuild)
+        {
+            DebugMode = true;
+        }
         if (Instance == null)
         {
             Instance = this;
@@ -33,19 +50,6 @@ public class GameManager : MonoBehaviour
         ObjectForLoadingLevels.Sort((x, y) => x.Id.CompareTo(y.Id));
     }
 
-    public void CreateNewObject()
-    {
-        LevelObject asset = LevelObject.CreateInstance<LevelObject>();
-        asset.Id = ObjectForLoadingLevels.Count+1;
-        AssetDatabase.CreateAsset(asset,"Assets/Prefabs/LevelObjects/ScriptableObjects/NewObject.asset");
-
-        AssetDatabase.SaveAssets();
-        ObjectForLoadingLevels.Add(asset);
-        AssetDatabase.Refresh();
-        EditorUtility.FocusProjectWindow();
-        Selection.activeObject = asset;
-    }
-
     public static void LoadLevel(Level level)
     {
         for (int i = 0; i < level.Content.GetLength(0); i++)
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
                         if (obj.GetComponent<GateScript>() != null)
                         {
                             obj.GetComponent<GateScript>().Channel = level.Content[i, j, k].Channel;
+                            obj.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[level.Content[i, j, k].Channel]);
                         }
                         else if (obj.GetComponent<PlayerPhysicController>() != null)
                         {
@@ -71,6 +76,7 @@ public class GameManager : MonoBehaviour
                             if (obj.transform.GetChild(0).GetComponent<TriggerSliderScript>() != null)
                             {
                                 obj.transform.GetChild(0).GetComponent<TriggerSliderScript>().Channel = level.Content[i, j, k].Channel;
+                                obj.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[level.Content[i, j, k].Channel]);
                             }
                             else if (obj.transform.GetChild(0).GetComponent<LevelCompleteScript>() != null)
                             {
@@ -79,6 +85,7 @@ public class GameManager : MonoBehaviour
                             else if (obj.transform.GetChild(0).GetComponent<SwitchScript>() != null)
                             {
                                 obj.transform.GetChild(0).GetComponent<SwitchScript>().Channel = level.Content[i, j, k].Channel;
+                                obj.transform.GetChild(0).GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", GameManager.Instance.ChannelColors[level.Content[i, j, k].Channel]);
                             }
                         }
                     }
@@ -97,6 +104,38 @@ public class GameManager : MonoBehaviour
                 {
                     Editor.PlaceObjectInLevel(Editor.EditLevel.Content[i, j, k].Object, Editor.EditLevel.Content[i, j, k].Rotation, j, k, i, Editor.EditLevel.Content[i, j, k].Channel);
                 }
+            }
+        }
+    }
+
+    public void PrintMessageInCanvas(string message)
+    {
+        GameObject obj = Instantiate(MessageObject,GameObject.Find("Canvas").transform);
+        obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
+        Messages.Add(obj);
+        moveMessagesUp();
+    }
+    public void PrintMessageInCanvas(string message,int height)
+    {
+        GameObject obj = Instantiate(MessageObject, GameObject.Find("Canvas").transform);
+        obj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = message;
+        Messages.Add(obj);
+        moveMessagesUp();
+    }
+
+    private void moveMessagesUp()
+    {
+        if(Messages.Count > 0)
+        {
+            for (int i = 0; i < Messages.Count; i++)
+            {
+                if(Messages[i] == null)
+                {
+                    Messages.RemoveAt(i);
+                    i--;
+                    continue;
+                }
+                Messages[i].GetComponent<RectTransform>().anchoredPosition += new Vector2(0, Messages[i].GetComponent<RectTransform>().rect.height);
             }
         }
     }

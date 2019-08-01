@@ -17,4 +17,5 @@ public class LevelObject : ScriptableObject
     public bool HasChannel;
     public bool CanOnlyBePlacedOnTop;
     public bool CanOnlyBePlacedOnBottom;
+    public bool IsUpsideDown;
 }

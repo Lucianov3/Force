@@ -49,9 +49,26 @@ public class Level
                 this.BotOrientation = level.BotOrientation;
             }
             Debug.Log("Level Succesfully loaded");
+            GameManager.Instance.PrintMessageInCanvas("Level Loaded");
         }
         else
         {
+            GameManager.Instance.PrintMessageInCanvas("Level doesn't Exist");
+            Debug.Log("Level doesn't Exist");
+        }
+    }
+
+    public void DeleteLevel(string path)
+    {
+        if (File.Exists(path))
+        {
+            File.Delete(path);
+            Debug.Log("Level Succesfully Deleted");
+            GameManager.Instance.PrintMessageInCanvas("Level Deleted");
+        }
+        else
+        {
+            GameManager.Instance.PrintMessageInCanvas("Level doesn't Exist");
             Debug.Log("Level doesn't Exist");
         }
     }
@@ -70,6 +87,7 @@ public class Level
         {
             JObject.FromObject(this).WriteTo(writer);
         }
+        GameManager.Instance.PrintMessageInCanvas("Level Saved");
         Debug.Log("Level Succesfully saved");
     }
 }

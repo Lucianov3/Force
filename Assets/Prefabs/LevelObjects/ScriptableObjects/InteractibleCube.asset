@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: InteractibleCube
   m_EditorClassIdentifier: 
   Object: {fileID: 1748580908647742, guid: 6e62bc735086d0b429828cec0fcf5f46, type: 3}
+  Image: {fileID: 21300000, guid: ef237337570edab40af9a04ddc9402fb, type: 3}
   Name: Interactible Cube
   Id: 10
   Width: 2

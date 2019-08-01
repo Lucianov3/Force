@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DoorBottom
   m_EditorClassIdentifier: 
   Object: {fileID: 1831721819800134, guid: 43636d107b4426447b01064af89f9308, type: 3}
+  Image: {fileID: 21300000, guid: e2214e93591e93446a1e29115dd1d32d, type: 3}
   Name: Door Bottom
   Id: 4
   Width: 2

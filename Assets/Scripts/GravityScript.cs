@@ -37,21 +37,21 @@ public class GravityScript : MonoBehaviour
     {
         if (!IsObjectHeld)
         {
-            if (GameManager.Instance.isGravityOn && rb.isKinematic)
+            if (GameManager.Instance.IsGravityOn && rb.isKinematic)
             {
                 rb.isKinematic = false;
             }
-            else if (!GameManager.Instance.isGravityOn && !rb.isKinematic)
+            else if (!GameManager.Instance.IsGravityOn && !rb.isKinematic)
             {
                 rb.isKinematic = true;
             }
             if (rb.position.y > 0)
             {
-                rb.velocity = new Vector3(0, -3000f * Time.deltaTime);
+                rb.velocity = new Vector3(0, -30f);
             }
             else
             {
-                rb.velocity = new Vector3(0, 3000f * Time.deltaTime);
+                rb.velocity = new Vector3(0, 30f);
             }
         }
     }

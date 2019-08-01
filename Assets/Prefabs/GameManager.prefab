@@ -43,6 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e7437a18dcc6146a3db4a067d72478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChannelColors:
+  - {r: 2.5193918, g: 0.38252544, b: 0, a: 1}
+  - {r: 2.5193918, g: 2.5062013, b: 0, a: 1}
+  - {r: 0.18466745, g: 2.5193918, b: 0, a: 1}
+  - {r: 0, g: 2.5193918, b: 2.4138675, a: 1}
+  - {r: 1.1343858, g: 0, b: 2.5193918, a: 1}
+  - {r: 2.5193918, g: 0, b: 2.400677, a: 1}
+  - {r: 1.1438452, g: 1.1438452, b: 1.1438452, a: 1}
+  - {r: 0, g: 3.3635857, b: 1.327444, a: 1}
+  - {r: 4.490651, g: 0, b: 0, a: 1}
+  - {r: 0, g: 0, b: 5.995372, a: 1}
   ObjectForLoadingLevels:
   - {fileID: 11400000, guid: e89f134ee2fdcae41841bff9d2be20f7, type: 2}
   - {fileID: 11400000, guid: 3d6cb2a77b356eb46b8de54331752e9e, type: 2}
@@ -55,4 +66,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 29e8363491fed5b4893c91a93a1e2399, type: 2}
   - {fileID: 11400000, guid: 54d7140e393bac44bb0567647a89c864, type: 2}
   - {fileID: 11400000, guid: 16b4555bcfabdeb4b8383910f7eeef15, type: 2}
-  isGravityOn: 1
+  IsGravityOn: 1
+  DebugMode: 0
+  MessageObject: {fileID: 8394634253067880604, guid: 7ea27bd7b594a054dbb225cea514b271,
+    type: 3}
+  TimeMessageIsShown: 3
+  Messages: []

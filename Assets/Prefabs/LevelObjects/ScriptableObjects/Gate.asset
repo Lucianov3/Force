@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gate
   m_EditorClassIdentifier: 
   Object: {fileID: 1309860501044396, guid: 6d7db7541c3bb1e45bfaf7c5e34ea165, type: 3}
+  Image: {fileID: 21300000, guid: 5d432e3546566894badf3e5b594aee4c, type: 3}
   Name: Gate
   Id: 9
   Width: 1

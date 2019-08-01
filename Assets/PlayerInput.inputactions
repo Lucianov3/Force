@@ -171,7 +171,7 @@
             ]
         },
         {
-            "name": "MulitPlayer",
+            "name": "MultiPlayer",
             "id": "990b89cb-123f-4bc6-a947-cf5d89ab97e3",
             "actions": [
                 {
@@ -392,66 +392,6 @@
                     "isComposite": false,
                     "isPartOfComposite": true,
                     "modifiers": ""
-                },
-                {
-                    "name": "Left Stick",
-                    "id": "dd1bdf95-eef1-4d42-a284-72b5a19a55db",
-                    "path": "2DVector(normalize=false)",
-                    "interactions": "",
-                    "processors": "AxisDeadzone(min=0.5,max=1)",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false,
-                    "modifiers": ""
-                },
-                {
-                    "name": "Up",
-                    "id": "1fd7c201-24e0-488c-8dc3-9e37dacba2a8",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true,
-                    "modifiers": ""
-                },
-                {
-                    "name": "Down",
-                    "id": "988bf15f-31db-498e-ab81-9d4a95ac70f4",
-                    "path": "<Gamepad>/leftStick/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true,
-                    "modifiers": ""
-                },
-                {
-                    "name": "Left",
-                    "id": "dc1e5c3b-a4a0-46a6-9e0a-ea57d71da14b",
-                    "path": "<Gamepad>/leftStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true,
-                    "modifiers": ""
-                },
-                {
-                    "name": "Right",
-                    "id": "e1be6d89-b906-4394-952b-4c01fca77102",
-                    "path": "<Gamepad>/leftStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true,
-                    "modifiers": ""
                 }
             ]
         },
@@ -537,14 +477,14 @@
                     "bindings": []
                 },
                 {
-                    "name": "SetChannelMenu",
+                    "name": "SwitchChannel",
                     "id": "4bf13371-6fe7-4eb7-8d81-27465dbba1d7",
-                    "expectedControlLayout": "",
+                    "expectedControlLayout": "Axis",
                     "continuous": false,
                     "passThrough": false,
                     "initialStateCheck": false,
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "",
                     "bindings": []
                 },
                 {
@@ -589,6 +529,17 @@
                     "initialStateCheck": false,
                     "processors": "",
                     "interactions": "Hold(pressPoint=0.9)",
+                    "bindings": []
+                },
+                {
+                    "name": "ScrollMenu",
+                    "id": "4edb53be-6e69-4f2c-b02a-8f79bd122ff9",
+                    "expectedControlLayout": "Axis",
+                    "continuous": false,
+                    "passThrough": false,
+                    "initialStateCheck": false,
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.9)",
                     "bindings": []
                 }
             ],
@@ -727,18 +678,6 @@
                 },
                 {
                     "name": "",
-                    "id": "e2fae909-80f9-483d-8b28-fcb8c4449069",
-                    "path": "<Gamepad>/buttonEast",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "SetChannelMenu",
-                    "isComposite": false,
-                    "isPartOfComposite": false,
-                    "modifiers": ""
-                },
-                {
-                    "name": "",
                     "id": "0cbe1287-1406-4de4-892f-fb365fad65b4",
                     "path": "<Gamepad>/dpad/x",
                     "interactions": "",
@@ -781,6 +720,54 @@
                     "processors": "",
                     "groups": "",
                     "action": "PointerYHold",
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "2eac105a-bfef-4b30-b17d-075c3b32cea3",
+                    "path": "1DAxis(whichSideWins=1)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchChannel",
+                    "isComposite": true,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "negative",
+                    "id": "3c67cae5-cf0e-45e0-82f0-7496b06fc546",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press(pressPoint=0.9)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchChannel",
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "positive",
+                    "id": "64c1338a-0735-465a-b124-d4d0b7f4ab37",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Press(pressPoint=0.9)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchChannel",
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "id": "4530178a-d408-456a-8379-881bbe545862",
+                    "path": "<Gamepad>/rightStick/y",
+                    "interactions": "",
+                    "processors": "Invert",
+                    "groups": "",
+                    "action": "ScrollMenu",
                     "isComposite": false,
                     "isPartOfComposite": false,
                     "modifiers": ""

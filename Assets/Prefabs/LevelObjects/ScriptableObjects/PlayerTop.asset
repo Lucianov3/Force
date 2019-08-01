@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: PlayerTop
   m_EditorClassIdentifier: 
   Object: {fileID: 1843264281408640, guid: ac4b14e1fc305474aa5f8bb96404709f, type: 3}
+  Image: {fileID: 21300000, guid: c7e97773414a1364c9321fa96d1a31a5, type: 3}
   Name: Player Top
   Id: 1
   Width: 1
@@ -22,3 +23,4 @@ MonoBehaviour:
   HasChannel: 0
   CanOnlyBePlacedOnTop: 1
   CanOnlyBePlacedOnBottom: 0
+  IsUpsideDown: 0
